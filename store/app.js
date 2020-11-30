@@ -1,5 +1,8 @@
+import getReq from "~/api/getReq"
+
 export const state = () => ({
-	menuVisible: false
+	menuVisible: false,
+	products: []
 })
 
 export const mutations = {

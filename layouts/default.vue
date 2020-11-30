@@ -1,5 +1,6 @@
 <template>
 	<div v-bind:class="{ lock: menuVisible }" class="main-wrapper">
+		<menuBar />
 		<Nuxt />
 	</div>
 </template>
@@ -16,20 +17,34 @@ html {
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
 }
-.main-wrapper.lock {
-	width: 100vw;
-	height: 100vh;
+.main-wrapper {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+body.lock{
 	overflow: hidden;
 }
 </style>
 
 <script>
+import menuBar from "@/components/MenuBar"
+
 export default {
+	head() {
+		return {
+			bodyAttrs: {
+				class: this.menuVisible ? "lock" : "",
+			}
+		}
+	},
 	computed: {
 		menuVisible() {
 			return this.$store.state.app.menuVisible
 		},
 	},
+	components: {
+		menuBar,
+	},
 }
 </script>
-

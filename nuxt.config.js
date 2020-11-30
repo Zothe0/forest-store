@@ -27,8 +27,7 @@ export default {
 	fontawesome: {
 		component: "fa",
 		icons: {
-			solid: true,
-			brands: true,
+			brands: ["faTelegram", "faWhatsapp", "faInstagram"],
 		},
 	},
 	// Modules (https://go.nuxtjs.dev/config-modules)
