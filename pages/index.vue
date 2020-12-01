@@ -1,9 +1,6 @@
 <template>
 	<div class="wrapper">
 		<div class="container">
-			<nuxt-link to="/about">
-				About
-			</nuxt-link>
 			<div class="header">
 				<div class="header__image"></div>
 				<div class="header__title">
@@ -16,7 +13,7 @@
 				</div>
 			</div>
 			<div class="advantages">
-				<a name="advantages" />
+				<a class="advantages__link" name="advantages" />
 				<div class="advantages__header">
 					Почему предлагаем выбрать именно наши товары
 				</div>
@@ -133,13 +130,19 @@
 				</div>
 			</div>
 			<div class="goods">
-				<a name="goods" />
-				<div class="goods__slider">
-					<transition name="product">
-						<div class="goods__track">
-							<ProductsTable :list="list" />
-						</div>
-					</transition>
+				<a class="goods__link" name="goods" />
+				<div class="goods__container">
+					<div class="goods__header">
+						Выбирайте здоровую, натуральную пищу, подаренную самой
+						природой!
+					</div>
+					<div class="goods__slider">
+						<transition name="product">
+							<div class="goods__track">
+								<ProductsTable :list="list" />
+							</div>
+						</transition>
+					</div>
 				</div>
 			</div>
 			<div class="contacts">
@@ -178,25 +181,55 @@ export default {
 					title: "Грибы1",
 					description: "Свежие дикие грибы сбор 2020 г.",
 				},
-			],
-			[
 				{
 					image: "/_nuxt/assets/mushrooms.jpg",
-					title: "Грибы2",
+					title: "Грибы1",
 					description: "Свежие дикие грибы сбор 2020 г.",
 				},
 				{
 					image: "/_nuxt/assets/mushrooms.jpg",
-					title: "Грибы2",
-					description: "Свежие дикие грибы сбор 2020 г.",
-				},
-				{
-					image: "/_nuxt/assets/mushrooms.jpg",
-					title: "Грибы2",
+					title: "Грибы1",
 					description: "Свежие дикие грибы сбор 2020 г.",
 				},
 			],
 			[
+				{
+					image: "/_nuxt/assets/mushrooms.jpg",
+					title: "Грибы2",
+					description: "Свежие дикие грибы сбор 2020 г.",
+				},
+				{
+					image: "/_nuxt/assets/mushrooms.jpg",
+					title: "Грибы2",
+					description: "Свежие дикие грибы сбор 2020 г.",
+				},
+				{
+					image: "/_nuxt/assets/mushrooms.jpg",
+					title: "Грибы2",
+					description: "Свежие дикие грибы сбор 2020 г.",
+				},
+				{
+					image: "/_nuxt/assets/mushrooms.jpg",
+					title: "Грибы2",
+					description: "Свежие дикие грибы сбор 2020 г.",
+				},
+				{
+					image: "/_nuxt/assets/mushrooms.jpg",
+					title: "Грибы2",
+					description: "Свежие дикие грибы сбор 2020 г.",
+				},
+			],
+			[
+				{
+					image: "/_nuxt/assets/mushrooms.jpg",
+					title: "Грибы3",
+					description: "Свежие дикие грибы сбор 2020 г.",
+				},
+				{
+					image: "/_nuxt/assets/mushrooms.jpg",
+					title: "Грибы3",
+					description: "Свежие дикие грибы сбор 2020 г.",
+				},
 				{
 					image: "/_nuxt/assets/mushrooms.jpg",
 					title: "Грибы3",
@@ -219,16 +252,17 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.link
+	margin-top: 100px
 .wrapper
 	background-color: #fff
 .header
 	height: 100vh
-	margin-top: 100px
 	display: flex
 	flex-direction: column
 	align-items: center
 	justify-content: flex-start
-	padding: 0 20px
+	padding: 100px 20px 0
 	&__image
 		background: center / cover no-repeat url('~assets/test-logo.jpg')
 		background-repeat: no-repeat
@@ -236,6 +270,7 @@ export default {
 		height: 260px
 		border-radius: 50%
 		margin-bottom: 55px
+		flex: 0 0 auto
 	&__title
 		font-size: 36px
 		font-weight: bold
@@ -255,6 +290,10 @@ export default {
 .advantages
 	background-color: #efefef
 	padding: 110px 20px 0px
+	position: relative
+	&__link
+		position: absolute
+		top: -80px
 	&__header
 		font-size: 50px
 		font-weight: bold
@@ -314,4 +353,26 @@ export default {
 			line-height: 1.2em
 		&__img
 			margin-bottom: 15px
+.goods
+	margin-bottom: 150px
+	position: relative
+	&__link
+		position: absolute
+		top: -71px
+	&__container
+		max-width: 1160px
+		margin: 0 auto
+	&__header
+		margin-top: 30px
+		margin-bottom: 100px
+		text-align: center
+		font-size: 42px
+		font-weight: 600
+	&__slide
+
+	&__track
+@media screen and ( max-width: 768px)
+	.goods
+		&__header
+			font-size: 30px
 </style>

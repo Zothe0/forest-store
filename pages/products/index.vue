@@ -1,13 +1,11 @@
 <template>
-	<div class="about">
-		<div class="text">About</div>
+	<div class="products">
+		<div class="text">Products</div>
 	</div>
 </template>
 
 <script>
-	export default {
-		
-	}
+export default {}
 </script>
 
 <style lang="sass" scoped>

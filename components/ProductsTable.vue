@@ -32,6 +32,16 @@ export default {
 .row
 	display: flex
 	padding: 0 -20px
+	margin-bottom: 70px
+	&:last-child
+		margin: 0
 .item
+	flex: 1 0 auto
 	margin: 0 20px
+@media screen and ( max-width: 768px)
+	.column
+		flex-direction: row
+	.row
+		flex-direction: column
+
 </style>
