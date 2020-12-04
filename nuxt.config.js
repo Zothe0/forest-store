@@ -14,7 +14,11 @@ export default {
 	},
 
 	// Global CSS (https://go.nuxtjs.dev/config-css)
-	css: ["@/assets/reseter.css", "@/assets/fonts/Roboto/roboto.css"],
+	css: [
+		"@/assets/reseter.css",
+		"@/assets/fonts/Roboto/roboto.css",
+		"@/assets/fonts/YanoneKaffeesatz/yanone.css",
+	],
 
 	// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
 	plugins: [],

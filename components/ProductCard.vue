@@ -1,7 +1,7 @@
 d<template>
 	<div class="card">
 		<nuxt-link to="/products/index.vue">
-			<div @mouseenter="showShadow" @mouseleave="hideShadow" class="img">
+			<!-- <div @mouseenter="showShadow" @mouseleave="hideShadow" class="img">
 				<nuxt-link to="/about">
 					<transition name="fade">
 						<div
@@ -13,7 +13,9 @@ d<template>
 						</div>
 					</transition>
 				</nuxt-link>
-			</div>
+			</div> -->
+			<!-- <img src="~/assets/mushrooms.jpg" class="img"> -->
+			<img src="~/assets/mushrooms.jpg" class="img">
 			<div class="title">
 				{{ card.title }}
 			</div>
@@ -41,7 +43,6 @@ export default {
 		},
 		showShadow() {
 			this.shadowVisible = true
-			console.log(this.shadowVisible)
 		},
 	},
 }
@@ -80,7 +81,7 @@ export default {
 	height: 100%
 	width: 100%
 	transition: all 300ms ease 0s
-	background-color: rgba(#000, 0.4)
+	background-color: rgba(#000, 0.55)
 	&__text
 .title
 	font-size: 20px
