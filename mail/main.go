@@ -31,7 +31,7 @@ func main() {
 	router.HandleFunc("/api/foo", fooHandler).Methods(http.MethodPost, http.MethodOptions)
 
 	log.Print("Starting server...")
-	err := http.ListenAndServe(":5000", router)
+	err := http.ListenAndServe(":3001", router)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -14,16 +14,11 @@
 					</transition>
 				</nuxt-link>
 			</div>
-			<!-- <img :src="card.image" class="img" alt="Ничего"> -->
 			<div class="title">
 				{{ card.title }}
 			</div>
 		</nuxt-link>
-		<!-- <div class="description">
-			{{ card.description }}
-		</div> -->
-
-		<button class="order">Заказать</button>
+		<a class="order" href="#contacts">Заказать</a>
 		<nuxt-link class="descrition" to="/about">Подробнее о товаре</nuxt-link>
 	</div>
 </template>
@@ -100,6 +95,9 @@ export default {
 	margin-bottom: 15px
 	line-height: 1.2em
 .order
+	display: flex
+	justify-content: center
+	align-items: center
 	margin-bottom: 8px
 	border: #000 solid 1px
 	border-radius: 3px
