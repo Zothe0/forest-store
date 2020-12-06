@@ -1,4 +1,5 @@
 export default {
+	
 	// Global page headers (https://go.nuxtjs.dev/config-head)
 	head: {
 		title: "Лесные радости - продукты для здорового питания",
@@ -35,7 +36,15 @@ export default {
 		},
 	},
 	// Modules (https://go.nuxtjs.dev/config-modules)
-	modules: [],
+	modules: ["@nuxtjs/yandex-metrika"],
+	yandexMetrika: {
+		id: "123",
+		webvisor: true,
+		clickmap: true,
+		useCDN: false,
+		trackLinks: true,
+		accurateTrackBounce: true,
+	},
 
 	// Build Configuration (https://go.nuxtjs.dev/config-build)
 	build: {},

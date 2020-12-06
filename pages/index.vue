@@ -2,16 +2,11 @@
 	<div class="wrapper">
 		<div class="container">
 			<div class="header">
-				<div class="header__image">
-				</div>
+				<div class="header__image"></div>
 				<div class="header__title">
 					Интернет-магазин здорового питания
 				</div>
-				<div class="header__text">
-					Вы можете приобрести свежие сборы трав, грибов, ягод 2020 г.
-					(Горный Алтай (Чемальский район, Онгудай, Белокуриха и т.
-					д.), Алтайский край, Новосибирская область) и многое другое!
-				</div>
+				<div class="header__text"></div>
 			</div>
 			<div class="advantages">
 				<a class="advantages__link" name="advantages" />
@@ -149,7 +144,7 @@
 			<div class="contacts">
 				<a class="contacts__link" name="contacts" />
 				<div class="contacts__container">
-					<div class="contacts__header">Наши контакты</div>
+					<div class="contacts__header">Связь с нами</div>
 					<div class="contacts__info">
 						<p class="contacts__p">
 							Для заказы свяжитесь с нами любым удобным для вас
@@ -208,9 +203,10 @@
 								<input
 									v-model="phone"
 									class="contacts__input"
-									placeholder="Введите ваш номер телефона"
+									:placeholder="placePhone"
 									type="tel"
-									maxlength="12"
+									maxlength="30"
+									:class="{ error: errorPhone }"
 								/>
 								<textarea
 									v-model="question"
@@ -219,12 +215,24 @@
 									rows="5"
 									maxlength="600"
 								/>
-								<button class="contacts__button" type="submit">
-									Отправить
-								</button>
+								<div class="contacts__commit">
+									<button
+										class="contacts__button"
+										type="submit"
+										:class="{ hide: response }"
+									>
+										Отправить
+									</button>
+									<div
+										class="contacts__succes"
+										:class="{ active: response }"
+									>
+										Ваша заявка успешно отправлена!
+									</div>
+								</div>
 								<div class="contacts__rights">
 									Нажимая на кнопку, вы даете полное,
-									информированное согласие и бла бла бла
+									информированное согласие и блаблабла
 									политика (гиперссылка)
 								</div>
 							</form>
@@ -241,7 +249,7 @@ import MenuBar from "@/components/MenuBar"
 import ProductsTable from "@/components/ProductsTable"
 import { mapState } from "vuex"
 import postReq from "@/api/postReq"
-import getReq from '~/api/getReq'
+import getReq from "~/api/getReq"
 
 export default {
 	components: {
@@ -251,87 +259,167 @@ export default {
 	data: () => ({
 		list: [
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Адаптогены",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Травяные чаи",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Травяные сборы",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Травы",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Исландский мох",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Мумие",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Каменное масло",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Живица",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Масла под заказ",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Грибы",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Кедрокофе/Ореховые пасты с шоколадом",
+				description: "",
 			},
 			{
-				image: "/_nuxt/assets/mushrooms.jpg",
-				title: "Грибы1",
-				description: "Свежие дикие грибы сбор 2020 г.",
+				image: "images/mushrooms.jpg",
+				title: "Кедровый орех",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Мед/Крем-мед",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Маточное молочко",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Ягоды сушеные",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Сосновые зеленые шишки",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Подарочные наборы к праздникам и торжествам",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Мыло натуральное",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Пусто",
+				description: "",
+			},
+			{
+				image: "images/mushrooms.jpg",
+				title: "Пусто",
+				description: "",
 			},
 		],
 		name: "",
 		email: "",
 		phone: "",
 		question: "",
+		placePhone: "Введите ваш номер телефона",
+		response: false,
+		errorPhone: false,
 	}),
-	methods:{
-		async sendForm(){
-			const body = {
-				name: this.name,
-				email: this.email,
-				phone: this.phone,
-				question: this.question
+	methods: {
+		async sendForm() {
+			const check = await new Promise(resolve => {
+				const validate = this.validateForm()
+				resolve(validate)
+			})
+			if (check) {
+				const body = {
+					name: this.name,
+					email: this.email,
+					phone: this.phone,
+					question: this.question,
+				}
+				this.name = ""
+				this.email = ""
+				this.phone = ""
+				this.question = ""
+				this.response = true
+				setTimeout(() => (this.response = false), 2000)
+				const response = await postReq("/api/foo", body)
+			} else {
+				this.phone = ""
+				this.placePhone = "Введите корректный номер телефона"
+				this.errorPhone = true
+				setTimeout(() => {
+					this.placePhone = "Введите ваш номер телефона"
+					this.errorPhone = false
+				}, 2500)
 			}
-			const response = await postReq("/api/foo", body)
-			console.log(response)
 		},
-	}
+		validateForm() {
+			const clear = this.phone
+				.trim()
+				.replace(/[.*+?^${}()|[\]\\]/g, "")
+				.split("")
+				.filter(i => isNaN(i))
+			return clear.length === 0 && this.phone.length > 0
+		},
+	},
 }
 </script>
 
 <style lang="sass" scoped>
+@mixin placeholder()
+	&::-webkit-input-placeholder
+		@content
+	&:-moz-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&:-ms-input-placeholder
+		@content
+
 .soc-link
 	font-size: 28px
 	margin-right: 3px
@@ -349,6 +437,7 @@ export default {
 	justify-content: flex-start
 	padding: 100px 20px 0
 	font-family: "Yanone Kaffeesatz", Arial, sans-serif
+	color: #719c7b
 	&__image
 		background: center / cover no-repeat url('~assets/logo.svg')
 		background-repeat: no-repeat
@@ -373,6 +462,14 @@ export default {
 		&__image
 			width: 150px
 			height: 150px
+		&__title
+			font-size: 30px
+@media screen and ( max-width: 576px)
+	.header
+		&__title
+			font-size: 28px
+		&__text
+			font-size: 20px
 .advantages
 	background-color: #efefef
 	padding: 110px 20px 0px
@@ -454,19 +551,20 @@ export default {
 		text-align: center
 		font-size: 42px
 		font-weight: 600
-	&__slide
-
-	&__track
 @media screen and ( max-width: 768px)
 	.goods
+		margin-bottom: 50px
 		&__header
 			font-size: 30px
+			margin-bottom: 30px
+
 .contacts
 	display: flex
 	flex-direction: column
 	justify-content: center
 	margin-bottom: 50px
 	position: relative
+	padding: 0 20px
 	&__link
 		position: absolute
 		top: -100px
@@ -514,12 +612,21 @@ export default {
 		padding: 0 15px
 		border: #cecece solid 1px
 		margin-bottom: 24px
+		border-radius: 3px
+	&__input.error
+		border: #f00 solid 1px
+		@include placeholder()
+			color: #f00
 	&__area
 		resize: none
 		border: #cecece solid 1px
 		margin-bottom: 24px
 		font-family: "Roboto", "Helvetica Neue", Arial, sans-serif
 		padding: 10px 15px 0
+	&__commit
+		position: relative
+		display: flex
+		justify-content: center
 	&__button
 		width: 200px
 		height: 60px
@@ -529,7 +636,47 @@ export default {
 		background-color: #1f5bff
 		margin-bottom: 24px
 		transition: all 300ms ease 0s
+		z-index: 10
 		&:hover
 			background-color: #1742b6
-	&__rights
+	&__button.hide
+		opacity: 0
+	&__succes
+		font-size: 26px
+		position: absolute
+		top: 25%
+		opacity: 0
+		transition: all 300ms ease 0s
+	&__succes.active
+		opacity: 1
+@media screen and ( max-width: 768px)
+	.contacts
+		&__header
+			font-size: 28px
+			margin-bottom: 25px
+		&__info
+			font-size: 16px
+			margin-bottom: 45px
+		&__column
+			&:nth-child(1)
+				flex: 0 0 40%
+		&__addres
+			font-size: 18px
+		&__input
+			height: 45px
+			margin-bottom: 24px
+		&__succes
+			font-size: 18px
+@media screen and ( max-width: 576px)
+	.contacts
+		&__row
+			flex-direction: column
+		&__column
+			&:first-child
+				margin-bottom: 25px
+		&__button
+			width: 120px
+			height: 35px
+		&__succes
+			font-size: 24px
 </style>

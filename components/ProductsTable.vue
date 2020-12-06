@@ -1,8 +1,10 @@
 <template>
 	<div class="column">
-		<div class="item" v-for="item in list" :key="item.title">
-			<ProductCard :cardData="item" />
-		</div>
+		<ProductCard
+			v-for="item in list"
+			:key="item.title"
+			:cardData="item"
+		/>
 	</div>
 </template>
 
@@ -28,12 +30,10 @@ export default {
 	justify-content: center
 	max-width: 1260px
 	margin: 0 auto
-.item
-	flex: 0 0 auto
-	margin: 0 20px 40px
 @media screen and ( max-width: 768px)
 	.column
 		flex-direction: row
+		padding: 0 10px
 	.row
 		flex-direction: column
 </style>

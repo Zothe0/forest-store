@@ -1,7 +1,7 @@
-d<template>
+<template>
 	<div class="card">
-		<nuxt-link to="/products/index.vue">
-			<!-- <div @mouseenter="showShadow" @mouseleave="hideShadow" class="img">
+		<nuxt-link to="/products/index.vue" class="img-wrapper">
+			<div @mouseenter="showShadow" @mouseleave="hideShadow" class="img"  :style="{ background: 'center/cover url(' + card.image + ')', }">
 				<nuxt-link to="/about">
 					<transition name="fade">
 						<div
@@ -9,22 +9,22 @@ d<template>
 							v-if="shadowVisible"
 							class="shadow"
 						>
-							<div class="shadow__text">Открыть описание</div>
+							<div class="shadow__text">Подробнее о товаре</div>
 						</div>
 					</transition>
 				</nuxt-link>
-			</div> -->
-			<!-- <img src="~/assets/mushrooms.jpg" class="img"> -->
-			<img src="~/assets/mushrooms.jpg" class="img">
+			</div>
+			<!-- <img :src="card.image" class="img" alt="Ничего"> -->
 			<div class="title">
 				{{ card.title }}
 			</div>
 		</nuxt-link>
-		<div class="description">
+		<!-- <div class="description">
 			{{ card.description }}
-		</div>
+		</div> -->
 
 		<button class="order">Заказать</button>
+		<nuxt-link class="descrition" to="/about">Подробнее о товаре</nuxt-link>
 	</div>
 </template>
 
@@ -35,6 +35,7 @@ export default {
 		return {
 			card: this.cardData,
 			shadowVisible: false,
+			src: "asdasd"
 		}
 	},
 	methods: {
@@ -59,12 +60,19 @@ export default {
 	opacity: 0
 .card
 	display: flex
+	margin: 0 20px 45px
 	flex-direction: column
+	flex: 0 0 20%
+	min-width: 20%
+.img-wrapper
+	display: flex
+	flex-direction: column
+	height: 250px
+	flex: 0 0 auto
 .img
 	position: relative
 	border-radius: 5px
-	height: 185px
-	background: center / cover url(~assets/mushrooms.jpg)
+	height: 200px
 	margin-bottom: 15px
 	flex: 1 1 124px
 .shadow
@@ -82,9 +90,8 @@ export default {
 	width: 100%
 	transition: all 300ms ease 0s
 	background-color: rgba(#000, 0.55)
-	&__text
 .title
-	font-size: 20px
+	font-size: 18px
 	font-weight: bold
 	margin-bottom: 10px
 .description
@@ -93,10 +100,11 @@ export default {
 	margin-bottom: 15px
 	line-height: 1.2em
 .order
+	margin-bottom: 8px
 	border: #000 solid 1px
 	border-radius: 3px
 	height: 35px
-	max-width: 270px
+	max-width: 100%
 	font-size: 13px
 	font-weight: 600
 	background-color: #fff
@@ -105,7 +113,28 @@ export default {
 		border: #fff solid 1px
 		background-color: #000
 		color: #fff
+.descrition
+	display: flex
+	align-items: center
+	justify-content: center
+	color: #fff
+	border: #fff solid 1px
+	border-radius: 3px
+	height: 35px
+	max-width: 100%
+	font-size: 13px
+	font-weight: 600
+	background-color: #719c7b
+	transition: all 300ms ease 0s
+	&:hover
+		border: #000 solid 1px
+		background-color: #fff
+		color: #000
 @media screen and ( max-width: 768px)
 	.card
-		margin-bottom: 40px
+		flex: 1 0 20%
+		margin: 0 10px 40px
+		min-width: 30%
+	.title
+		font-size: 16px
 </style>
