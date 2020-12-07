@@ -119,7 +119,7 @@ func sendMail(data *request) {
 	count := getOrderCount()
 
 	m := gomail.NewMessage()
-	m.SetHeader("From", "dedwithin@gmail.com")
+	m.SetHeader("From", "darwin.bot@yandex.ru")
 	m.SetAddressHeader("Cc", "lesnye.radosti@gmail.com", "Store")
 	m.SetHeader("Subject", fmt.Sprint("Заказ №", " ", count))
 	m.SetBody("text/html", fmt.Sprint(
@@ -128,7 +128,7 @@ func sendMail(data *request) {
 		"<p><b>Телефон клиента:</b>", data.Phone, "</p>",
 		"<p><b>Заказ клиента:</b>", data.Question, "</p>"))
 
-	d := gomail.NewDialer("smtp.gmail.com", 465, "dedwithin@gmail.com", "Rjxtnrjdbkmz1")
+	d := gomail.NewDialer("imap.yandex.ru", 465, "darwin.bot@yandex.ru", "Rjxtnrjdbkmz1")
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Send the email to Store
