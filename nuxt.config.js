@@ -1,5 +1,4 @@
 export default {
-	
 	// Global page headers (https://go.nuxtjs.dev/config-head)
 	head: {
 		title: "Лесные радости - продукты для здорового питания",
@@ -28,15 +27,14 @@ export default {
 	components: true,
 
 	// Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-	buildModules: ["@nuxtjs/fontawesome"],
+	buildModules: ["@nuxtjs/fontawesome", "@nuxtjs/yandex-metrika"],
 	fontawesome: {
 		component: "fa",
 		icons: {
 			brands: ["faTelegram", "faWhatsapp", "faInstagram"],
 		},
 	},
-	// Modules (https://go.nuxtjs.dev/config-modules)
-	modules: ["@nuxtjs/yandex-metrika"],
+
 	yandexMetrika: {
 		id: "123",
 		webvisor: true,
@@ -45,6 +43,8 @@ export default {
 		trackLinks: true,
 		accurateTrackBounce: true,
 	},
+	// Modules (https://go.nuxtjs.dev/config-modules)
+	modules: [],
 
 	// Build Configuration (https://go.nuxtjs.dev/config-build)
 	build: {},

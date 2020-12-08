@@ -24,14 +24,15 @@ func AccessMiddleware(next http.Handler) http.Handler {
 
 func main() {
 
+	PORT := 3005
 	router := mux.NewRouter()
 	router.Use(mux.CORSMethodMiddleware(router))
 	router.Use(AccessMiddleware)
 
 	router.HandleFunc("/api/foo", fooHandler).Methods(http.MethodPost, http.MethodOptions)
 
-	log.Print("Starting server...")
-	err := http.ListenAndServe(":3005", router)
+	log.Print("Starting mail server on port ", PORT, "...")
+	err := http.ListenAndServe(fmt.Sprint(":",PORT), router)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -119,7 +120,7 @@ func sendMail(data *request) {
 	count := getOrderCount()
 
 	m := gomail.NewMessage()
-	m.SetHeader("From", "darwin.bot@yandex.ru")
+	m.SetHeader("From", "dedwithin@gmail.com")// darwin.bot@yandex.ru
 	m.SetAddressHeader("Cc", "lesnye.radosti@gmail.com", "Store")
 	m.SetHeader("Subject", fmt.Sprint("Заказ №", " ", count))
 	m.SetBody("text/html", fmt.Sprint(
@@ -128,7 +129,7 @@ func sendMail(data *request) {
 		"<p><b>Телефон клиента:</b>", data.Phone, "</p>",
 		"<p><b>Заказ клиента:</b>", data.Question, "</p>"))
 
-	d := gomail.NewDialer("imap.yandex.ru", 465, "darwin.bot@yandex.ru", "Rjxtnrjdbkmz1")
+	d := gomail.NewDialer("smtp.gmail.com", 465, "dedwithin@gmail.com", "Rjxtnrjdbkmz1")//imap.yandex.ru
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Send the email to Store
