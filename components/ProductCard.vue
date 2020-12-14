@@ -2,7 +2,7 @@
 	<div class="card">
 		<nuxt-link to="/products/index.vue" class="img-wrapper">
 			<div @mouseenter="showShadow" @mouseleave="hideShadow" class="img"  :style="{ background: 'center/cover url(' + card.image + ')', }">
-				<nuxt-link to="/about">
+				<nuxt-link :to="card.path">
 					<transition name="fade">
 						<div
 							@mouseleave="hideShadow"
@@ -18,8 +18,8 @@
 				{{ card.title }}
 			</div>
 		</nuxt-link>
-		<a class="order" href="#contacts">Заказать</a>
-		<nuxt-link class="descrition" to="/about">Подробнее о товаре</nuxt-link>
+		<a class="order" href="/#contacts">Заказать</a>
+		<nuxt-link class="descrition"  :to="card.path">Подробнее о товаре</nuxt-link>
 	</div>
 </template>
 

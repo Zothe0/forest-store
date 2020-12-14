@@ -2,18 +2,18 @@
 	<div class="main">
 		<transition name="slide-fade">
 			<div @mouseleave="hideMenu" v-if="menuVisible" class="menu__block">
-				<div @click="hideMenu" class="menu__cross"/>
+				<div @click="hideMenu" class="menu__cross" />
 				<div class="menu__column">
-					<a @click="hideMenu" class="menu__link" href="#goods"
+					<a class="menu__link" @click="hideMenu" href="/#goods"
 						>Наша продукция</a
 					>
-					<a @click="hideMenu" class="menu__link" href="#advantages"
+					<a class="menu__link" @click="hideMenu" href="/#advantages"
 						>Почему мы</a
 					>
-					<a @click="hideMenu" class="menu__link" href="#contacts"
+					<a class="menu__link" @click="hideMenu" href="/#contacts"
 						>Заказать</a
 					>
-					<a @click="hideMenu" class="menu__link" href="#contacts"
+					<a class="menu__link" @click="hideMenu" href="/#contacts"
 						>Наши контакты</a
 					>
 				</div>
@@ -62,7 +62,7 @@ export default {
 		},
 		hideMenu() {
 			this.$store.commit("app/HIDE_MENU")
-		},
+		}
 	},
 }
 </script>

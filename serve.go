@@ -8,31 +8,34 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func main(){
+func main() {
+
 
 	app := newServer(3000)
 
 	err := app.LaunchServer()
-	if err != nil{
+	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-type Server struct{
-	port int
+type Server struct {
+	port   int
 	router *mux.Router
 }
-func newServer(port int) *Server{
+
+func newServer(port int) *Server {
 
 	router := mux.NewRouter()
 	dir := "./dist/"
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir(dir)))
 
 	return &Server{
-		port: port,
+		port:   port,
 		router: router,
 	}
 }
+
 // LaunchServer method
 func (s *Server) LaunchServer() error {
 
