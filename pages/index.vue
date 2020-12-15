@@ -227,7 +227,7 @@ export default {
 			{
 				image: "images/mushrooms.jpg",
 				title: "Масла сыродавленные под заказ",
-				path: "/products/adaptogen",
+				path: "/products/raw-oil",
 			},
 			{
 				image: "images/mushrooms.jpg",
