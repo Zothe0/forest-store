@@ -1,7 +1,12 @@
 <template>
 	<div class="card">
 		<nuxt-link to="/products/index.vue" class="img-wrapper">
-			<div @mouseenter="showShadow" @mouseleave="hideShadow" class="img"  :style="{ background: 'center/cover url(' + card.image + ')', }">
+			<div
+				@mouseenter="showShadow"
+				@mouseleave="hideShadow"
+				class="img"
+				:style="{ background: 'center/cover url(' + card.image + ')' }"
+			>
 				<nuxt-link :to="card.path">
 					<transition name="fade">
 						<div
@@ -19,7 +24,9 @@
 			</div>
 		</nuxt-link>
 		<a class="order" href="/#contacts">Заказать</a>
-		<nuxt-link class="descrition"  :to="card.path">Подробнее о товаре</nuxt-link>
+		<nuxt-link class="descrition" :to="card.path"
+			>Подробнее о товаре</nuxt-link
+		>
 	</div>
 </template>
 
@@ -30,7 +37,7 @@ export default {
 		return {
 			card: this.cardData,
 			shadowVisible: false,
-			src: "asdasd"
+			src: "asdasd",
 		}
 	},
 	methods: {
@@ -129,6 +136,14 @@ export default {
 		background-color: #fff
 		color: #000
 @media screen and ( max-width: 768px)
+	.order:hover
+		border: #000 solid 1px
+		background-color: #fff
+		color: #000
+	.descrition:hover
+		border: #fff solid 1px
+		background-color: #719c7b
+		color: #fff
 	.card
 		flex: 1 0 20%
 		margin: 0 10px 40px

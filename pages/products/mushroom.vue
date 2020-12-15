@@ -178,6 +178,7 @@ export default {
 		border: #000 solid 1px
 		border-radius: 3px
 		height: 35px
+		min-width: 270px
 		max-width: 100%
 		font-size: 13px
 		font-weight: 600

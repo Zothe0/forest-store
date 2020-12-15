@@ -40,7 +40,7 @@
 						<span>-омолаживающий</span><span>-для похудения </span
 						><span>-антипаразитарный</span><span> - детский </span
 						><span>-очистительный </span
-						><span>-для повышения иммунитета (исландский мох) </span
+						><span>-для повышения иммунитета</span
 						><span>-гинекологический </span
 						><span>-при климаксе</span>
 						<span>-мастопатии</span>
@@ -114,6 +114,7 @@ export default {
 		border: #000 solid 1px
 		border-radius: 3px
 		height: 35px
+		min-width: 270px
 		max-width: 100%
 		font-size: 13px
 		font-weight: 600
@@ -132,7 +133,7 @@ export default {
 	.product
 		flex-direction: column
 		&__column
-			align-items: center
+			align-items: flex-start
 			margin-right: 0 !important
 			margin-bottom: 20px
 </style>

@@ -217,12 +217,12 @@ export default {
 			{
 				image: "images/mushrooms.jpg",
 				title: "Каменное масло",
-				path: "/products/adaptogen",
+				path: "/products/stone-oil",
 			},
 			{
 				image: "images/mushrooms.jpg",
 				title: "Живица",
-				path: "/products/adaptogen",
+				path: "/products/hedge",
 			},
 			{
 				image: "images/mushrooms.jpg",
