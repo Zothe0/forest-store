@@ -6,17 +6,17 @@
 					class="product__image"
 					:style="{ 'background-image': `url(${image})` }"
 				/>
-				<a href="#contacts" class="product__price">от 400 €$</a>
+				<a href="#contacts" class="product__price">от 400 ₽</a>
 			</div>
 			<div class="product__text">
 				<p class="prouduct__p">
 					<span class="bold"
 						>Маралий корень, Золотой корень (родиола розовая)</span
-					>: 100 гр.-400 руб., 1 кг.-2500 руб.
+					>: 100гр 400 ₽, 1кг 2500 ₽
 				</p>
 				<p class="prouduct__p">
-					<span class="bold">Родиола розовая</span>: 100 гр.-500 руб.,
-					1кг.-4000 руб.
+					<span class="bold">Родиола розовая</span>: 100гр 500 ₽, 1кг
+					4000 ₽
 				</p>
 				<p>Местопроизрастания Горный Алтай (Онгудай)</p>
 				<p>
@@ -113,6 +113,7 @@ export default {
 		border: #000 solid 1px
 		border-radius: 3px
 		height: 35px
+		min-width: 270px
 		max-width: 100%
 		font-size: 13px
 		font-weight: 600
@@ -127,4 +128,11 @@ export default {
 		line-height: 1.2em
 		p
 			margin-bottom: 15px
+@media screen and ( max-width: 767px)
+	.product
+		flex-direction: column
+		&__column
+			align-items: center
+			margin-right: 0 !important
+			margin-bottom: 20px
 </style>

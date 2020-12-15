@@ -6,7 +6,7 @@
 					class="product__image"
 					:style="{ 'background-image': `url(${image})` }"
 				/>
-				<a href="#contacts" class="product__price">от ? €$</a>
+				<a href="#contacts" class="product__price">от ? ₽</a>
 			</div>
 			<div class="product__text">
 				<p class="prouduct__p">
@@ -128,4 +128,11 @@ export default {
 		line-height: 1.2em
 		p
 			margin-bottom: 15px
+@media screen and ( max-width: 767px)
+	.product
+		flex-direction: column
+		&__column
+			align-items: center
+			margin-right: 0 !important
+			margin-bottom: 20px
 </style>

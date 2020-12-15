@@ -202,17 +202,17 @@ export default {
 			{
 				image: "images/mushrooms.jpg",
 				title: "Ягоды сушеные",
-				path: "/products/adaptogen",
+				path: "/products/berries",
 			},
 			{
 				image: "images/mushrooms.jpg",
 				title: "Исландский мох",
-				path: "/products/adaptogen",
+				path: "/products/moss",
 			},
 			{
 				image: "images/mushrooms.jpg",
 				title: "Мумие",
-				path: "/products/adaptogen",
+				path: "/products/mummy",
 			},
 			{
 				image: "images/mushrooms.jpg",
@@ -398,6 +398,12 @@ export default {
 	.advantages
 		&__header
 			font-size: 34px
+		&__title
+			text-align: center
+		&__mini-row
+			margin: 0
+		&__text
+			margin-right: 0
 		&__row
 			flex-direction: column
 			align-items: center
