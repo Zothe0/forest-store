@@ -462,6 +462,7 @@ export default {
 		display: flex
 		justify-content: center
 	&__info
+		padding: 0 20px
 		text-align: justify
 		display: flex
 		flex-direction: column
