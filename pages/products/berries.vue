@@ -120,7 +120,7 @@ export default {
 		text-align: justify
 		line-height: 1.2em
 		p
-			margin-bottom: 10px
+			margin-bottom: 20px
 @media screen and ( max-width: 767px)
 	.product
 		flex-direction: column

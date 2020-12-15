@@ -232,23 +232,23 @@ export default {
 			{
 				image: "images/mushrooms.jpg",
 				title: "Масло Гхи",
-				path: "/products/adaptogen",
+				path: "/products/ghee-oil",
 			},
 			{
 				image: "images/mushrooms.jpg",
 				title: "Кедрокофе",
-				path: "/products/adaptogen",
+				path: "/products/cedar-coffee",
 			},
 			{
 				image: "images/mushrooms.jpg",
 				title:
 					"Кедровых орех (продукция на основе кедрового ореха, ореховые пасты с шоколадом и др.)",
-				path: "/products/adaptogen",
+				path: "/products/pine-nut",
 			},
 			{
 				image: "images/mushrooms.jpg",
 				title: "Мед",
-				path: "/products/adaptogen",
+				path: "/products/honey",
 			},
 			{
 				image: "images/mushrooms.jpg",
