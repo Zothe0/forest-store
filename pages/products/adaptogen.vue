@@ -93,6 +93,8 @@ export default {
 	margin: 0 auto 140px
 	max-width: 1250px
 	display: flex
+	&__columns
+		display: flex
 	&__column
 		display: flex
 		flex-direction: column
