@@ -406,11 +406,14 @@ export default {
 			margin-bottom: 40px
 @media screen and ( max-width: 767px)
 	.advantages
+		padding-top: 35px
+		&__header
+			margin-bottom: 22px
 		&__mini-row
 			flex-direction: column-reverse
 			align-items: center
 		&__text
-			margin-bottom: 50px
+			margin-bottom: 20px
 		&__title
 			line-height: 1em
 			margin-bottom: 15px
