@@ -341,6 +341,7 @@ export default {
 		line-height: 1.3em
 @media screen and ( max-width: 767px)
 	.header
+		height: 100%
 		&__image
 			width: 150px
 			height: 150px
