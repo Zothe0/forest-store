@@ -27,6 +27,7 @@
 				trackLinks: true,
 				accurateTrackBounce: true,
 				webvisor: true,
+				ecommerce: "dataLayer",
 			})
 		</script>
 		<noscript
