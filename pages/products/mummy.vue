@@ -18,9 +18,9 @@
 				</p>
 				<div class="product__columns">
 					<div class="product__column">
-						<span class="bold">- 25гр 250 ₽</span>
-						<span class="bold">- 50гр 400 ₽</span
-						><span class="bold">- 100гр 750 ₽</span>
+						<span class="bold">- 25гр - 250 ₽</span>
+						<span class="bold">- 50гр - 400 ₽</span
+						><span class="bold">- 100гр - 750 ₽</span>
 						<span class="bold">10кг и более - дешевле</span>
 					</div>
 				</div>

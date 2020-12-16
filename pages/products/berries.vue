@@ -16,17 +16,18 @@
 					китайские)
 				</p>
 				<p>
-					<span class="bold">Цена 1кг 1500 руб</span>, можно
+					<span class="bold">Цена 1кг - 1500 руб</span>, можно
 					расфасовать меньшим объемом по потребностям
 				</p>
 				<div class="product__columns">
 					<div class="product__column">
-						<span class="bold">-Калина сушеная</span>
-						<span class="bold">-Черника сушеная</span
-						><span class="bold">-Можжевельник сушеный</span
-						><span class="bold">-Боярышник сушеный</span
+						<span class="bold">- Калина сушеная</span>
+						<span class="bold">- Черника сушеная</span
+						><span class="bold">- Можжевельник сушеный</span
+						><span class="bold">- Боярышник сушеный</span
 						><span class="bold"
-							>-Шиповник сушеный (витамин С- 1250 ед.-рекордсмен) </span
+							>-Шиповник сушеный (витамин С - 1250 ед.-
+							рекордсмен) </span
 						><span class="bold">-Клюква сушеная</span>
 					</div>
 				</div>
@@ -43,7 +44,7 @@
 					тяжелых металлов, насыщают организм кислородом.
 				</p>
 				<p>
-					<span class="bold">Доставка по Москве 150-250 руб.</span>
+					<span class="bold">Доставка по Москве 150 - 250 руб.</span>
 				</p>
 			</div>
 		</div>

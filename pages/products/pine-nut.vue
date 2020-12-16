@@ -6,7 +6,7 @@
 					class="product__image"
 					:style="{ 'background-image': `url(${image})` }"
 				/>
-				<a href="#contacts" class="product__price">от 350 ₽</a>
+				<a href="#contacts" class="product__price">от 250 ₽</a>
 			</div>
 			<div class="product__text">
 				<p>
@@ -15,16 +15,16 @@
 					>, урожай 2020 г., качественный, алтайский
 				</p>
 				<p>
-					<span class="bold">100гр 250 ₽</span>
+					<span class="bold">100гр - 250 ₽</span>
 				</p>
 				<p>
-					<span class="bold">500гр 750 ₽</span>
+					<span class="bold">500гр - 750 ₽</span>
 				</p>
 				<p>
-					<span class="bold">1кг 1500 ₽</span>
+					<span class="bold">1кг - 1500 ₽</span>
 				</p>
 				<p>
-					<span class="bold">2кг 1400 ₽</span>, более 2кг - цена
+					<span class="bold">2кг - 1400 ₽</span>, более 2кг - цена
 					договорная
 				</p>
 				<p>
@@ -50,29 +50,34 @@
 					Так же предлагается другая продукция:
 				</p>
 				<p>
-					<span class="bold">- кедровое масло 100мл 450 ₽ </span
+					<span class="bold">- кедровое масло 100мл - 450 ₽ </span
 					>отжимается в день заказа
 				</p>
 				<p>
 					<span class="bold"
-						>- кедровые орешки в меде 500гр 850 ₽</span
+						>- кедровые орешки в меде 500гр - 850 ₽</span
 					>
 				</p>
 				<p>
 					<span class="bold"
-						>- кедровые орешки в сосновом сиропе 500гр 850
-						₽</span
+						>- кедровые орешки в сосновом сиропе 500гр - 850 ₽</span
 					>
 				</p>
 				<p>
 					<span class="bold"
-						>- кедровая паста с шоколадом 500гр 850 ₽</span
+						>- кедровая паста с шоколадом 500гр - 850 ₽</span
 					>, готовиться под заказ
 				</p>
 				<p>
-					<span class="bold">- <nuxt-link class="link" to="/products/cedar-coffee">кедрокофе</nuxt-link> 100гр 250 ₽</span> по
-					желанию добавляется какао, кофе, кокосовое молоко сухое или
-					молоко сухое коровье, готовиться под заказ
+					<span class="bold"
+						>-
+						<nuxt-link class="link" to="/products/cedar-coffee"
+							>кедрокофе</nuxt-link
+						>
+						100гр - 250 ₽</span
+					>
+					по желанию добавляется какао, кофе, кокосовое молоко сухое
+					или молоко сухое коровье, готовиться под заказ
 				</p>
 				<p>
 					Протертая скорлупа тоже очень полезна, она содержит пищевые

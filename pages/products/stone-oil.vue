@@ -6,7 +6,7 @@
 					class="product__image"
 					:style="{ 'background-image': `url(${image})` }"
 				/>
-				<a href="#contacts" class="product__price">от 250 ₽</a>
+				<a href="#contacts" class="product__price">от 350 ₽</a>
 			</div>
 			<div class="product__text">
 				<p>
@@ -15,9 +15,9 @@
 				</p>
 				<div class="product__columns">
 					<div class="product__column">
-						<span class="bold">- 10гр 350 ₽</span>
-						<span class="bold">- 20гр 650 ₽</span
-						><span class="bold">- 30гр 900 ₽</span>
+						<span class="bold">- 10гр - 350 ₽</span>
+						<span class="bold">- 20гр - 650 ₽</span
+						><span class="bold">- 30гр - 900 ₽</span>
 						<span class="bold">Оптом дешевле.</span>
 					</div>
 				</div>

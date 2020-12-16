@@ -6,7 +6,7 @@
 					class="product__image"
 					:style="{ 'background-image': `url(${image})` }"
 				/>
-				<a href="#contacts" class="product__price">от ? ₽</a>
+				<a href="#contacts" class="product__price">от 0 ₽</a>
 			</div>
 			<div class="product__text">
 				<p class="prouduct__p">

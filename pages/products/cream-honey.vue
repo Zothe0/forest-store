@@ -10,17 +10,18 @@
 			</div>
 			<div class="product__text">
 				<p>
-					<span class="bold">Крем-мед (с малиной, с лимоном, с клюквой)</span>,
+					<span class="bold"
+						>Крем-мед (с малиной, с лимоном, с клюквой)</span
+					>,
 				</p>
-				<p>
+				<p></p>
 				<p>
 					<span class="bold">250гр - 250₽</span>
 				</p>
 				<p>
 					<span class="bold">500гр - 550 ₽</span>
 				</p>
-				<p>
-				</p>
+				<p></p>
 			</div>
 		</div>
 		<Form />
