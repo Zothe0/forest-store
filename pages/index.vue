@@ -253,7 +253,7 @@ export default {
 			{
 				image: "images/mushrooms.jpg",
 				title: "Крем-мед",
-				path: "/products/adaptogen",
+				path: "/products/cream-honey",
 			},
 			{
 				image: "images/mushrooms.jpg",

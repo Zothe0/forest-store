@@ -35,7 +35,7 @@ export default {
 		},
 	},
 	yandexMetrika: {
-		id: "forest-store",
+		id: "forest",
 		webvisor: true,
 		clickmap: true,
 		useCDN: false,
