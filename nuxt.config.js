@@ -27,20 +27,12 @@ export default {
 	components: true,
 
 	// Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-	buildModules: ["@nuxtjs/fontawesome", "@nuxtjs/yandex-metrika"],
+	buildModules: ["@nuxtjs/fontawesome"],
 	fontawesome: {
 		component: "fa",
 		icons: {
 			brands: ["faTelegram", "faWhatsapp", "faInstagram"],
 		},
-	},
-	yandexMetrika: {
-		id: "forest",
-		webvisor: true,
-		clickmap: true,
-		useCDN: false,
-		trackLinks: true,
-		accurateTrackBounce: true,
 	},
 	// Modules (https://go.nuxtjs.dev/config-modules)
 	modules: [],
