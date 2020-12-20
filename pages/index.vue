@@ -34,7 +34,7 @@
 									рода.
 								</p>
 							</div>
-							<div class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les1.webp)' }" class="advantages__img" />
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -50,7 +50,7 @@
 									другую информацию).
 								</p>
 							</div>
-							<div class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les3.webp)' }" class="advantages__img" />
 						</div>
 					</div>
 					<div class="advantages__row">
@@ -71,7 +71,7 @@
 									окисляются.
 								</p>
 							</div>
-							<div class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les6.webp)' }" class="advantages__img" />
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -87,7 +87,7 @@
 									плантаций.
 								</p>
 							</div>
-							<div class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les4.webp)' }" class="advantages__img" />
 						</div>
 					</div>
 					<div class="advantages__row">
@@ -108,7 +108,7 @@
 									животного происхождения.
 								</p>
 							</div>
-							<div class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/squirrel.webp)' }" class="advantages__img" />
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -125,7 +125,7 @@
 									защитные силы организма
 								</p>
 							</div>
-							<div class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les8.webp)' }" class="advantages__img" />
 						</div>
 					</div>
 				</div>
@@ -185,115 +185,115 @@ export default {
 	data: () => ({
 		list: [
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/adaptogen.webp",
 				title: "Адаптогены",
-				path: "/products/adaptogen",
+				path: "/product?name=adaptogen",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/tea.webp",
 				title: "Травяные чаи",
-				path: "/products/tea",
+				path: "/product?name=tea",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/mushroom.webp",
 				title: "Грибы (белый, лисички,опята, рейши, чага, агарикус)",
-				path: "/products/mushroom",
+				path: "/product?name=mushroom",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/berries.webp",
 				title: "Ягоды сушеные",
-				path: "/products/berries",
+				path: "/product?name=berries",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/moss.webp",
 				title: "Исландский мох",
-				path: "/products/moss",
+				path: "/product?name=moss",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/mumie.webp",
 				title: "Мумие",
-				path: "/products/mummy",
+				path: "/product?name=mumie",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/stone-oil.webp",
 				title: "Каменное масло",
-				path: "/products/stone-oil",
+				path: "/product?name=stone-oil",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/hedge.webp",
 				title: "Живица",
-				path: "/products/hedge",
+				path: "/product?name=hedge",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/raw-oil.webp",
 				title: "Масла сыродавленные под заказ",
-				path: "/products/raw-oil",
+				path: "/product?name=raw-oil",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/ghee-oil.webp",
 				title: "Масло Гхи",
-				path: "/products/ghee-oil",
+				path: "/product?name=ghee-oil",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/cedar-coffee.webp",
 				title: "Кедрокофе",
-				path: "/products/cedar-coffee",
+				path: "/product?name=cedar-coffee",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/pine-nut.webp",
 				title:
 					"Кедровых орех (продукция на основе кедрового ореха, ореховые пасты с шоколадом и др.)",
-				path: "/products/pine-nut",
+				path: "/product?name=pine-nut",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/honey.webp",
 				title: "Мед",
-				path: "/products/honey",
+				path: "/product?name=honey",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/cream-honey.webp",
 				title: "Крем-мед",
-				path: "/products/cream-honey",
+				path: "/product?name=cream-honey",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/premium-honey.webp",
 				title: "Премиальный дягилевый мед",
-				path: "/products/premium-honey",
+				path: "/product?name=premium-honey",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/fir-oil.webp",
 				title: "Пихтовое масло",
-				path: "/products/fir-oil",
+				path: "/product?name=fir-oil",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/production.webp",
 				title: "Продукция на основе сосновых зеленых шишек",
-				path: "/products/production",
+				path: "/product?name=production",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/gift-set.webp",
 				title: "Подарочные наборы к праздникам и торжествам",
-				path: "/products/gift-set",
+				path: "/product?name=gift-set",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/burdock-juice.webp",
 				title: "Сок лопуха с медом",
-				path: "/products/burdock-juice",
+				path: "/product?name=burdock-juice",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/cedar-pillows.webp",
 				title: "Подушки с кедровой скорлупой",
-				path: "/products/cedar-pillows",
+				path: "/product?name=cedar-pillows",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/royal-jelly.webp",
 				title: "Маточное молочко",
-				path: "/products/royal-jelly",
+				path: "/product?name=royal-jelly",
 			},
 			{
-				image: "images/mushrooms.jpg",
+				image: "images/products/boron-uterus.webp",
 				title: "Красная щетка и боровая матка",
-				path: "/products/boron-uterus",
+				path: "/product?name=boron-uterus",
 			},
 		],
 	}),
@@ -313,6 +313,7 @@ export default {
 	background-color: #fff
 .header
 	height: 100vh
+	background: center/cover url(/images/zastavka.webp)
 	display: flex
 	flex-direction: column
 	align-items: center
@@ -394,7 +395,6 @@ export default {
 		width: 100px
 		height: 100px
 		border-radius: 50%
-		background: center / cover url("~assets/mock.jpg")
 @media screen and ( max-width: 1259px)
 	.advantages
 		&__header

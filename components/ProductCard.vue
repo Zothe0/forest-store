@@ -72,6 +72,7 @@ export default {
 	height: 250px
 	flex: 0 0 auto
 .img
+	border: 1px solid #000
 	position: relative
 	border-radius: 5px
 	height: 200px
