@@ -129,7 +129,7 @@ func sendMail(data *request) {
 		"<p><b>Телефон клиента:</b>", data.Phone, "</p>",
 		"<p><b>Заказ клиента:</b>", data.Question, "</p>"))
 
-	d := gomail.NewDialer("smtp.gmail.com", 587, "dedwithin@gmail.com", "jwouradzyoyelgui")//imap.yandex.ru
+	d := gomail.NewDialer("smtp.gmail.com", 587, "dedwithin@gmail.com", "jefjwtjphzbihnrj")//imap.yandex.ru
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Send the email to Store
