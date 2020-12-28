@@ -47,10 +47,12 @@ func (s *Server) LaunchServer() error {
 
 	log.Print("Serving SPA on port ", s.port, "...")
 
-	err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
-	if err != nil {
-		return err
-	}
+	http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "privkey.pem", s.router)
+
+	// err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
+	// if err != nil {
+	// 	return err
+	// }
 	return nil
 }
 
