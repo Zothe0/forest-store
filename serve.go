@@ -47,7 +47,7 @@ func (s *Server) LaunchServer() error {
 
 	log.Print("Serving SPA on port ", s.port, "...")
 
-	http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "privkey.pem", s.router)
+	http.ListenAndServeTLS(fmt.Sprint(":", s.port), "/etc/letsencrypt/live/lesnye-radosti.ru/cert.pem", "/etc/letsencrypt/live/lesnye-radosti.ru/privkey.pem", s.router)
 
 	// err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
 	// if err != nil {
