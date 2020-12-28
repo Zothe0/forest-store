@@ -28,7 +28,7 @@ func main() {
 func serveMail(){
 	router := mux.NewRouter()
 	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
-	http.ListenAndServeTLS(fmt.Sprint(":", 3000), "/etc/letsencrypt/live/lesnye-radosti.ru/cert.pem", "/etc/letsencrypt/live/lesnye-radosti.ru/privkey.pem", router)
+	http.ListenAndServeTLS(fmt.Sprint(":", 3000), "cert.pem", "key.pem", router)
 }
 
 type Server struct {
