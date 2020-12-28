@@ -17,7 +17,7 @@ func main() {
 
 	app := newServer(3000)
 
-	go serveMail()
+	// go serveMail()
 
 	err := app.LaunchServer()
 	if err != nil {
@@ -25,11 +25,11 @@ func main() {
 	}
 }
 
-func serveMail(){
-	router := mux.NewRouter()
-	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
-	http.ListenAndServeTLS(fmt.Sprint(":", 3000), "cert.pem", "key.pem", router)
-}
+// func serveMail(){
+// 	router := mux.NewRouter()
+// 	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
+// 	http.ListenAndServeTLS(fmt.Sprint(":", 3000), "cert.pem", "key.pem", router)
+// }
 
 type Server struct {
 	port   int
@@ -40,7 +40,7 @@ func newServer(port int) *Server {
 
 	router := mux.NewRouter()
 	router.Use(AccessMiddleware)
-	// router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
+	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
 	dir := "./dist/"
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir(dir)))
 
@@ -55,9 +55,9 @@ func (s *Server) LaunchServer() error {
 
 	log.Print("Serving SPA on port ", s.port, "...")
 
-	// http.ListenAndServeTLS(fmt.Sprint(":", s.port), "/etc/letsencrypt/live/lesnye-radosti.ru/cert.pem", "/etc/letsencrypt/live/lesnye-radosti.ru/privkey.pem", s.router)
+	err := http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "key.pem", s.router)
 
-	err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
+	// err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
 	if err != nil {
 		return err
 	}
@@ -153,7 +153,7 @@ func sendMail(data *request) {
 	count := getOrderCount()
 
 	m := gomail.NewMessage()
-	m.SetHeader("From", "z0the@yandex.ru")// z0the@yandex.ru dedwithin@gmail.com
+	m.SetHeader("From", "z0the@yandex.ru")                        // z0the@yandex.ru dedwithin@gmail.com
 	m.SetAddressHeader("Cc", "lesnye.radosti@gmail.com", "Store") // lesnye.radosti@gmail.com
 	m.SetHeader("Subject", fmt.Sprint("Заказ №", " ", count))
 	m.SetBody("text/html", fmt.Sprint(
@@ -162,7 +162,7 @@ func sendMail(data *request) {
 		"<p><b>Телефон клиента:</b>", data.Phone, "</p>",
 		"<p><b>Заказ клиента:</b>", data.Question, "</p>"))
 
-	d := gomail.NewDialer("smtp.yandex.ru", 465, "z0the@yandex.ru", "timzzqesdrfhknfs")//smtp.yandex.ru smtp.gmail.com
+	d := gomail.NewDialer("smtp.yandex.ru", 465, "z0the@yandex.ru", "timzzqesdrfhknfs") //smtp.yandex.ru smtp.gmail.com
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Send the email to Store
