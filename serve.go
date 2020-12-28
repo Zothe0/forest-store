@@ -17,10 +17,18 @@ func main() {
 
 	app := newServer(3000)
 
+	go serveMail()
+
 	err := app.LaunchServer()
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func serveMail(){
+	router := mux.NewRouter()
+	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
+	http.ListenAndServeTLS(fmt.Sprint(":", 3000), "/etc/letsencrypt/live/lesnye-radosti.ru/cert.pem", "/etc/letsencrypt/live/lesnye-radosti.ru/privkey.pem", router)
 }
 
 type Server struct {
@@ -32,7 +40,7 @@ func newServer(port int) *Server {
 
 	router := mux.NewRouter()
 	router.Use(AccessMiddleware)
-	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
+	// router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
 	dir := "./dist/"
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir(dir)))
 
@@ -47,12 +55,12 @@ func (s *Server) LaunchServer() error {
 
 	log.Print("Serving SPA on port ", s.port, "...")
 
-	http.ListenAndServeTLS(fmt.Sprint(":", s.port), "/etc/letsencrypt/live/lesnye-radosti.ru/cert.pem", "/etc/letsencrypt/live/lesnye-radosti.ru/privkey.pem", s.router)
+	// http.ListenAndServeTLS(fmt.Sprint(":", s.port), "/etc/letsencrypt/live/lesnye-radosti.ru/cert.pem", "/etc/letsencrypt/live/lesnye-radosti.ru/privkey.pem", s.router)
 
-	// err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
-	// if err != nil {
-	// 	return err
-	// }
+	err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
