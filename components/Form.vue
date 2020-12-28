@@ -111,7 +111,7 @@ export default {
 				this.question = ""
 				this.response = true
 				setTimeout(() => (this.response = false), 2000)
-				const response = await postReq("/api/foo", body)
+				const response = await postReq("/api/mail", body)
 			} else {
 				this.phone = ""
 				this.placePhone = "Введите корректный номер телефона"
