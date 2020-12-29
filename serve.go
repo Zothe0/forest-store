@@ -11,6 +11,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"gopkg.in/gomail.v2"
+	"github.com/kabukky/httpscerts"
 )
 
 func main() {
@@ -55,7 +56,16 @@ func (s *Server) LaunchServer() error {
 
 	log.Print("Serving SPA on port ", s.port, "...")
 
-	err := http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "key.pem", s.router)
+	err := httpscerts.Check("cert.pem", "key.pem")
+    // Если он недоступен, то генерируем новый.
+    if err != nil {
+        err = httpscerts.Generate("cert.pem", "key.pem", "127.0.0.1:3000")
+        if err != nil {
+            log.Fatal("Ошибка: Не можем сгенерировать https сертификат.")
+        }
+    }
+
+	err = http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "key.pem", s.router)
 
 	// err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
 	if err != nil {
