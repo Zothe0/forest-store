@@ -10,27 +10,19 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
-	"gopkg.in/gomail.v2"
 	"github.com/kabukky/httpscerts"
+	"gopkg.in/gomail.v2"
 )
 
 func main() {
 
 	app := newServer(3000)
 
-	// go serveMail()
-
 	err := app.LaunchServer()
 	if err != nil {
 		log.Fatal(err)
 	}
 }
-
-// func serveMail(){
-// 	router := mux.NewRouter()
-// 	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
-// 	http.ListenAndServeTLS(fmt.Sprint(":", 3000), "cert.pem", "key.pem", router)
-// }
 
 type Server struct {
 	port   int
@@ -53,17 +45,16 @@ func newServer(port int) *Server {
 
 // LaunchServer method
 func (s *Server) LaunchServer() error {
-
 	log.Print("Serving SPA on port ", s.port, "...")
 
 	err := httpscerts.Check("cert.pem", "key.pem")
-    // Если он недоступен, то генерируем новый.
-    if err != nil {
-        err = httpscerts.Generate("cert.pem", "key.pem", "127.0.0.1:3000")
-        if err != nil {
-            log.Fatal("Ошибка: Не можем сгенерировать https сертификат.")
-        }
-    }
+	// Если он недоступен, то генерируем новый.
+	if err != nil {
+		err = httpscerts.Generate("cert.pem", "key.pem", "127.0.0.1:3000")
+		if err != nil {
+			log.Fatal("Ошибка: Не можем сгенерировать https сертификат.")
+		}
+	}
 
 	err = http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "key.pem", s.router)
 
@@ -177,7 +168,7 @@ func sendMail(data *request) {
 
 	// Send the email to Store
 	if err := d.DialAndSend(m); err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	log.Print("Mail sent")
 	incrementOrderCount(count)
