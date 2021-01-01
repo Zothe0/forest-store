@@ -55,7 +55,7 @@ type fileData struct {
 }
 
 func getOrderCount() int {
-	filename, err := os.Open("./data.json")
+	filename, err := os.Open("./backend/data.json")
 	if err != nil {
 		log.Fatal(err)
 	}
