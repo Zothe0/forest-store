@@ -1,4 +1,4 @@
-module serve
+module backend
 
 go 1.15
 

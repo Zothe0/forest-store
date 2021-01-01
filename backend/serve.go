@@ -1,52 +1,61 @@
 package main
 
 import (
-	"crypto/tls"
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
+
+	"backend/mail"
+	"backend/middleware"
 
 	"github.com/gorilla/mux"
 	"github.com/kabukky/httpscerts"
-	"gopkg.in/gomail.v2"
 )
 
 func main() {
 
 	app := newServer(3000)
 
-	err := app.LaunchServer()
+	err := app.launchServer()
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-type Server struct {
+type server struct {
 	port   int
 	router *mux.Router
 }
 
-func newServer(port int) *Server {
-
-	router := mux.NewRouter()
-	router.Use(AccessMiddleware)
-	router.HandleFunc("/api/mail", mailHandler).Methods(http.MethodPost)
-	dir := "./dist/"
-	router.PathPrefix("/").Handler(http.FileServer(http.Dir(dir)))
-
-	return &Server{
+func newServer(port int) *server {
+	return &server{
 		port:   port,
-		router: router,
+		router: configureRouter(),
 	}
 }
 
-// LaunchServer method
-func (s *Server) LaunchServer() error {
+func configureRouter() *mux.Router {
+	router := mux.NewRouter()
+	router.Use(middleware.AccessMiddleware)
+	router.HandleFunc("/api/mail", mail.Handler).Methods(http.MethodPost)
+	dir := "./dist/"
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir(dir)))
+
+	return router
+}
+
+func (s *server) launchServer() error {
 	log.Print("Serving SPA on port ", s.port, "...")
 
+	certificateCheck()
+	err := http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "key.pem", s.router)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func certificateCheck() {
 	err := httpscerts.Check("cert.pem", "key.pem")
 	// Если он недоступен, то генерируем новый.
 	if err != nil {
@@ -55,121 +64,4 @@ func (s *Server) LaunchServer() error {
 			log.Fatal("Ошибка: Не можем сгенерировать https сертификат.")
 		}
 	}
-
-	err = http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "key.pem", s.router)
-
-	// err := http.ListenAndServe(fmt.Sprint(":", s.port), s.router)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-type response struct {
-	Ok            bool   `json:"ok"`
-	RequestMethod string `json:"requestMethod"`
-}
-
-type request struct {
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Phone    string `json:"phone"`
-	Question string `json:"question"`
-}
-
-func mailHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Content-Type", "application/json")
-
-	response := &response{
-		Ok:            true,
-		RequestMethod: r.Method,
-	}
-	byteResponse, err := json.Marshal(response)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer r.Body.Close()
-
-	body := &request{}
-	err = json.NewDecoder(r.Body).Decode(body)
-	if err != nil {
-		log.Fatal(err)
-	}
-	sendMail(body)
-
-	w.WriteHeader(202)
-	w.Write(byteResponse)
-}
-
-func AccessMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		defer next.ServeHTTP(w, r)
-
-		w.Header().Add("Access-Control-Allow-Origin", "*")
-
-	})
-}
-
-type Data struct {
-	OrderCount int `json:"orderCount"`
-}
-
-func getOrderCount() int {
-	filename, err := os.Open("./data.json")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer filename.Close()
-
-	data, err := ioutil.ReadAll(filename)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-	parseData := &Data{}
-
-	err = json.Unmarshal(data, parseData)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return parseData.OrderCount
-}
-
-func incrementOrderCount(counter int) {
-	counter = counter + 1
-	data := &Data{
-		OrderCount: counter,
-	}
-
-	d, err := json.MarshalIndent(data, "", "	")
-	if err != nil {
-		log.Fatal(err)
-	}
-	ioutil.WriteFile("./data.json", d, 0644)
-}
-
-func sendMail(data *request) {
-
-	count := getOrderCount()
-
-	m := gomail.NewMessage()
-	m.SetHeader("From", "z0the@yandex.ru")                        // z0the@yandex.ru dedwithin@gmail.com
-	m.SetAddressHeader("Cc", "lesnye.radosti@gmail.com", "Store") // lesnye.radosti@gmail.com
-	m.SetHeader("Subject", fmt.Sprint("Заказ №", " ", count))
-	m.SetBody("text/html", fmt.Sprint(
-		"<p><b>Имя клиента:</b>", data.Name, "</p>",
-		"<p><b>Почта клиента:</b>", data.Email, "</p>",
-		"<p><b>Телефон клиента:</b>", data.Phone, "</p>",
-		"<p><b>Заказ клиента:</b>", data.Question, "</p>"))
-
-	d := gomail.NewDialer("smtp.yandex.ru", 465, "z0the@yandex.ru", "timzzqesdrfhknfs") //smtp.yandex.ru smtp.gmail.com
-	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
-
-	// Send the email to Store
-	if err := d.DialAndSend(m); err != nil {
-		log.Println(err)
-	}
-	log.Print("Mail sent")
-	incrementOrderCount(count)
 }
