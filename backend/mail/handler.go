@@ -85,7 +85,7 @@ func incrementOrderCount(counter int) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	ioutil.WriteFile("./data.json", d, 0644)
+	ioutil.WriteFile("./backend/data.json", d, 0644)
 }
 
 func sendMail(data *requestBody) {
