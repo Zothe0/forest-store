@@ -1,6 +1,6 @@
 <template>
 	<div class="card">
-		<nuxt-link to="/products/index.vue" class="img-wrapper">
+		<nuxt-link :to="card.path" class="img-wrapper">
 			<div
 				@mouseenter="showShadow"
 				@mouseleave="hideShadow"

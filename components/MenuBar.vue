@@ -4,16 +4,16 @@
 			<div @mouseleave="hideMenu" v-if="menuVisible" class="menu__block">
 				<div @click="hideMenu" class="menu__cross" />
 				<div class="menu__column">
-					<a class="menu__link" @click="hideMenu" href="/#goods"
+					<a class="menu__link" @click="hideMenu" href="/#!goods"
 						>Наша продукция</a
 					>
-					<a class="menu__link" @click="hideMenu" href="/#advantages"
+					<a class="menu__link" @click="hideMenu" href="/#!advantages"
 						>Почему мы</a
 					>
-					<a class="menu__link" @click="hideMenu" href="/#contacts"
+					<a class="menu__link" @click="hideMenu" href="/#!contacts"
 						>Заказать</a
 					>
-					<a class="menu__link" @click="hideMenu" href="/#contacts"
+					<a class="menu__link" @click="hideMenu" href="/#!contacts"
 						>Наши контакты</a
 					>
 				</div>
@@ -94,15 +94,15 @@ export default {
 .burger
 	display: flex
 	align-items: center
-	border-top: solid 3px #000
-	border-bottom: solid 3px #000
+	border-top: solid 3px #!000
+	border-bottom: solid 3px #!000
 	height: 18.5px
 	width: 28px
 .burger.hidden
 	opacity: 0
 .line
 	width: 100%
-	border-top: 3px solid #000
+	border-top: 3px solid #!000
 .soc-link
 	font-size: 28px
 	margin-right: 3px
@@ -112,7 +112,7 @@ export default {
 	position: fixed
 	width: 100%
 	height: 70px
-	background-color: #fff
+	background-color: #!fff
 	z-index: 10
 .menu
 	&__block
@@ -121,8 +121,8 @@ export default {
 		left: 0
 		width: 100%
 		height: 100vh
-		background-color: #111111
-		color: #faf4e1
+		background-color: #!111111
+		color: #!faf4e1
 		width: 303px
 		display: flex
 		flex-direction: column
@@ -135,13 +135,13 @@ export default {
 		position: absolute
 		top: 30px
 		right: 40px
-		background-color: #fff
+		background-color: #!fff
 		&::before, &::after
 			content: ""
 			position: absolute
 			top: 50%
 			left: -50%
-			background-color: #fff
+			background-color: #!fff
 			width: 26px
 			height: 2px
 		&::before
@@ -166,7 +166,7 @@ export default {
 		z-index: 11
 		width: 100%
 		height: 100%
-		background-color: rgba(#000, 0.35)
+		background-color: rgba(#!000, 0.35)
 @media screen and ( max-width: 768px)
 	.menu
 		&__cross
