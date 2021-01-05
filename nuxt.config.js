@@ -4,7 +4,7 @@ export default {
 		title: "Лесные радости - продукты для здорового питания",
 		meta: [
 			{ charset: "utf-8" },
-			{ name="fragment", content="!" },
+			
 			{
 				name: "viewport",
 				content: "width=device-width, initial-scale=1",

@@ -23,10 +23,10 @@
 				{{ card.title }}
 			</div>
 		</nuxt-link>
-		<a class="order" href="/#contacts">Заказать</a>
 		<nuxt-link class="descrition" :to="card.path"
 			>Подробнее о товаре</nuxt-link
 		>
+		<a class="order" href="/#contacts">Заказать</a>
 	</div>
 </template>
 

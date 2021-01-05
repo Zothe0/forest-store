@@ -257,6 +257,7 @@ export default {
 			height: 45px
 			margin-bottom: 24px
 		&__succes
+			margin-bottom: 15px
 			font-size: 18px
 @media screen and ( max-width: 576px)
 	.contacts
