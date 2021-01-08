@@ -50,7 +50,7 @@
 									другую информацию).
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les3.webp)' }" class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les2.webp)' }" class="advantages__img" />
 						</div>
 					</div>
 					<div class="advantages__row">
@@ -71,7 +71,7 @@
 									окисляются.
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les6.webp)' }" class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les3.webp)' }" class="advantages__img" />
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -108,7 +108,7 @@
 									животного происхождения.
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/squirrel.webp)' }" class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les5.webp)' }" class="advantages__img" />
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -125,7 +125,7 @@
 									защитные силы организма
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les8.webp)' }" class="advantages__img" />
+							<div :style="{ background: 'center/cover url(/images/les6.webp)' }" class="advantages__img" />
 						</div>
 					</div>
 				</div>
@@ -266,9 +266,9 @@ export default {
 				path: "/product?name=fir-oil",
 			},
 			{
-				image: "images/products/production.webp",
+				image: "images/products/pine-production.webp",
 				title: "Продукция на основе сосновых зеленых шишек",
-				path: "/product?name=production",
+				path: "/product?name=pine-production",
 			},
 			{
 				image: "images/products/gift-set.webp",
@@ -291,9 +291,9 @@ export default {
 				path: "/product?name=royal-jelly",
 			},
 			{
-				image: "images/products/boron-uterus.webp",
+				image: "images/products/red-brush.webp",
 				title: "Красная щетка и боровая матка",
-				path: "/product?name=boron-uterus",
+				path: "/product?name=red-brush",
 			},
 		],
 	}),
