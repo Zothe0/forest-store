@@ -108,7 +108,7 @@
 									животного происхождения.
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les5.webp)' }" class="advantages__img" />
+							<div :style="{ background: 'left/cover url(/images/les5.webp)' }" class="advantages__img" />
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
