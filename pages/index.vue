@@ -313,7 +313,7 @@ export default {
 	background-color: #fff
 .header
 	height: 100vh
-	background: center/cover url(/images/zastavka.webp)
+	background: center/cover url(/images/background.webp)
 	display: flex
 	flex-direction: column
 	align-items: center
