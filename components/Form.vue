@@ -35,7 +35,7 @@
 							class="contacts__input"
 							type="text"
 							placeholder="Введите email"
-							maxlength="28"
+							maxlength="30"
 						/>
 						<input
 							v-model="phone"
