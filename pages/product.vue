@@ -1258,7 +1258,7 @@ export default {
 				</p>
 					`,
 			},
-			"boron-uterus": {
+			"red-brush": {
 				image: "../images/products/boron-uterus.webp",
 				price: 500,
 				text: `
