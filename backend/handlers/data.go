@@ -8,15 +8,14 @@ import (
 	"net/http"
 )
 
-type responseData struct{
+type responseData struct {
 	Text string `json:"text"`
 }
 
 // DataHandler ...
-func DataHandler(w http.ResponseWriter, r *http.Request){
+func DataHandler(w http.ResponseWriter, r *http.Request) {
 	params := r.URL.Query()
 	name := params.Get("name")
-	log.Println(name)
 	fContent, err := ioutil.ReadFile(fmt.Sprint("data/productTexts/", name, ".txt"))
 	if err != nil {
 		log.Println("Error: ", err)

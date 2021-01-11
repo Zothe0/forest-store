@@ -10,9 +10,7 @@ import (
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"github.com/kabukky/httpscerts"
 	prerender "github.com/tampajohn/goprerender"
-	// "golang.org/x/crypto/acme/autocert"
 )
 
 func main() {
@@ -55,29 +53,9 @@ func configureRouter() *negroni.Negroni {
 func (s *server) launchServer() error {
 	log.Print("Serving SPA on port ", s.port, "...")
 
-	certificateCheck()
 	err := http.ListenAndServe(fmt.Sprint(":", s.port), s.negroni)
-	// err := http.ListenAndServeTLS(fmt.Sprint(":", s.port), "cert.pem", "key.pem", s.negroni)
 	if err != nil {
 		return err
 	}
 	return nil
-}
-
-func certificateCheck() {
-
-	// certManager := autocert.Manager{
-	// 	Prompt:     autocert.AcceptTOS,
-	// 	HostPolicy: autocert.HostWhitelist("lesnye-radosti.ru"), //Your domain here
-	// 	Cache:      autocert.DirCache("certs"),            //Folder for storing certificates
-	// }
-
-	err := httpscerts.Check("cert.pem", "key.pem")
-	// Если он недоступен, то генерируем новый.
-	if err != nil {
-		err = httpscerts.Generate("cert.pem", "key.pem", "127.0.0.1:3000")
-		if err != nil {
-			log.Fatal("Ошибка: Не можем сгенерировать https сертификат.")
-		}
-	}
 }

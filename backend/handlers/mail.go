@@ -55,7 +55,7 @@ type fileData struct {
 }
 
 func getOrderCount() int {
-	filename, err := os.Open("./backend/data.json")
+	filename, err := os.Open("../data/orderCount.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -85,7 +85,7 @@ func incrementOrderCount(counter int) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	ioutil.WriteFile("./backend/data.json", d, 0644)
+	ioutil.WriteFile("../data/orderCount.json", d, 0644)
 }
 
 func sendMail(data *requestBody) {
