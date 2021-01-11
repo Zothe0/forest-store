@@ -34,7 +34,7 @@
 					<div class="line"></div>
 				</div>
 				<div class="social-links">
-					<a href="" class="soc-link"
+					<a href="https://www.instagram.com/lesnye_radosti/" class="soc-link"
 						><fa :icon="['fab', 'instagram']"
 					/></a>
 					<a href="" class="soc-link"

@@ -1,6 +1,6 @@
 <template>
 	<div class="column">
-		<ProductCard
+		<LazyProductCard
 			v-for="item in list"
 			:key="item.title"
 			:cardData="item"
