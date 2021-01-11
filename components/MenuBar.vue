@@ -4,16 +4,16 @@
 			<div @mouseleave="hideMenu" v-if="menuVisible" class="menu__block">
 				<div @click="hideMenu" class="menu__cross" />
 				<div class="menu__column">
-					<a class="menu__link" @click="hideMenu" href="/#!goods"
+					<a class="menu__link" @click="hideMenu" href="/#goods"
 						>Наша продукция</a
 					>
-					<a class="menu__link" @click="hideMenu" href="/#!advantages"
+					<a class="menu__link" @click="hideMenu" href="/#advantages"
 						>Почему мы</a
 					>
-					<a class="menu__link" @click="hideMenu" href="/#!contacts"
+					<a class="menu__link" @click="hideMenu" href="/#contacts"
 						>Заказать</a
 					>
-					<a class="menu__link" @click="hideMenu" href="/#!contacts"
+					<a class="menu__link" @click="hideMenu" href="/#contacts"
 						>Наши контакты</a
 					>
 				</div>
