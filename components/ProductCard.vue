@@ -96,7 +96,7 @@ export default {
 	&__text
 		text-align: center
 		font-weight: 400
-		font-size: 20px
+		font-size: 18px
 .title
 	font-size: 18px
 	font-weight: bold
