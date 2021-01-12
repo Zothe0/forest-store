@@ -13,9 +13,15 @@ export default {
 				name: "viewport",
 				content: "width=device-width, initial-scale=1",
 			},
+			{
+				name: "yandex-verification",
+				content: "f51e97e2f7614aba"
+			},
 			{ hid: "description", name: "description", content: "" },
 		],
-		link: [{ rel: "icon", type: "image/x-icon", href: "/images/favicon1.ico" }],
+		link: [
+			{ rel: "icon", type: "image/x-icon", href: "/images/favicon1.ico" },
+		],
 	},
 
 	// Global CSS (https://go.nuxtjs.dev/config-css)
