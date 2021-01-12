@@ -1,6 +1,6 @@
 <template>
 	<div class="contacts">
-		<a class="contacts__link" name="contacts" />
+		<a class="contacts__link" name="contacts" id="contacts"/>
 		<div class="contacts__container">
 			<div class="contacts__header">Оставить заявку</div>
 			<div class="contacts__row">

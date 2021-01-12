@@ -7,24 +7,15 @@
 					<div class="menu__link" @click="menuClick('goods')">
 						Наша продукция
 					</div>
-					<nuxt-link
-						class="menu__link"
-						@click="hideMenu"
-						to="/#advantages"
-						>Почему мы</nuxt-link
-					>
-					<nuxt-link
-						class="menu__link"
-						@click="hideMenu"
-						to="/#contacts"
-						>Заказать</nuxt-link
-					>
-					<nuxt-link
-						class="menu__link"
-						@click="hideMenu"
-						to="/#contacts"
-						>Наши контакты</nuxt-link
-					>
+					<div class="menu__link" @click="menuClick('advantages')">
+						Почему мы
+					</div>
+					<div class="menu__link" @click="menuClick('contacts')">
+						Заказать
+					</div>
+					<div class="menu__link" @click="menuClick('contacts')">
+						Наши контакты
+					</div>
 				</div>
 				<div class="menu__footer">© 2020 Лесные радости</div>
 			</div>
@@ -70,12 +61,13 @@ export default {
 	methods: {
 		menuClick(path) {
 			this.hideMenu()
-			const temp = this.$parent.$children[1].$children[0].$refs
-			this.$router.push("/")
-			setTimeout(() => {
-				console.log(1)
-				temp.goods.scrollIntoView()
-			}, 2000)
+			this.$router.push(`/#${path}`)
+			if (this.$router.currentRoute.hash) {
+				this.$router.replace("/")
+				setTimeout(() => {
+					this.$router.push(`/#${path}`)
+				}, 1)
+			}
 		},
 		showMenu() {
 			this.$store.commit("app/SHOW_MENU")

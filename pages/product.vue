@@ -24,7 +24,6 @@
 			}
 		</style>
 		<div class="product">
-			<button @click="scroll">Scroll</button>
 			<div class="product__column">
 				<div
 					class="product__image"

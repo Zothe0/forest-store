@@ -7,7 +7,7 @@ export default {
 			{
 				hud: "prebuild",
 				name: "fragment",
-				content: "!"
+				content: "!",
 			},
 			{
 				name: "viewport",
@@ -32,7 +32,7 @@ export default {
 	components: true,
 
 	// Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-	buildModules: ["@nuxtjs/fontawesome"],
+	buildModules: ["@nuxtjs/fontawesome", "vue-browser-detect-plugin/nuxt"],
 	fontawesome: {
 		component: "fa",
 		icons: {

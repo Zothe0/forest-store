@@ -2,10 +2,13 @@ import getReq from "~/api/getReq"
 
 export const state = () => ({
 	menuVisible: false,
-	currentProductText: "pass"
+	isSafari: false
 })
 
 export const mutations = {
+	CHANGE_BROWSER(state, current) {
+		state.isSafari = current
+	},
 	SHOW_MENU(state) {
 		state.menuVisible = true
 	},

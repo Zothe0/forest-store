@@ -2,14 +2,14 @@
 	<div class="wrapper">
 		<div class="container">
 			<div class="header">
-				<div class="header__image"/>
+				<div class="header__image" />
 				<div class="header__title">
 					Интернет-магазин здорового питания
 				</div>
 				<div class="header__text"></div>
 			</div>
 			<div class="advantages">
-				<a class="advantages__link" name="advantages" />
+				<a class="advantages__link" name="advantages" id="advantages" />
 				<div class="advantages__header">
 					Почему предлагаем выбрать именно наши товары
 				</div>
@@ -34,7 +34,13 @@
 									рода.
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les1.webp)' }" class="advantages__img" />
+							<div
+								:style="{
+									background:
+										'center/cover url(/images/les1.webp)',
+								}"
+								class="advantages__img"
+							/>
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -50,7 +56,13 @@
 									другую информацию).
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les2.webp)' }" class="advantages__img" />
+							<div
+								:style="{
+									background:
+										'center/cover url(/images/les2.webp)',
+								}"
+								class="advantages__img"
+							/>
 						</div>
 					</div>
 					<div class="advantages__row">
@@ -71,7 +83,13 @@
 									окисляются.
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les3.webp)' }" class="advantages__img" />
+							<div
+								:style="{
+									background:
+										'center/cover url(/images/les3.webp)',
+								}"
+								class="advantages__img"
+							/>
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -87,7 +105,13 @@
 									плантаций.
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les4.webp)' }" class="advantages__img" />
+							<div
+								:style="{
+									background:
+										'center/cover url(/images/les4.webp)',
+								}"
+								class="advantages__img"
+							/>
 						</div>
 					</div>
 					<div class="advantages__row">
@@ -108,7 +132,13 @@
 									животного происхождения.
 								</p>
 							</div>
-							<div :style="{ background: 'right/cover url(/images/les5.webp)' }" class="advantages__img" />
+							<div
+								:style="{
+									background:
+										'right/cover url(/images/les5.webp)',
+								}"
+								class="advantages__img"
+							/>
 						</div>
 						<div class="advantages__mini-row">
 							<div class="advantages__text">
@@ -125,13 +155,19 @@
 									защитные силы организма
 								</p>
 							</div>
-							<div :style="{ background: 'center/cover url(/images/les6.webp)' }" class="advantages__img" />
+							<div
+								:style="{
+									background:
+										'center/cover url(/images/les6.webp)',
+								}"
+								class="advantages__img"
+							/>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="goods">
-				<div class="ref__goods" ref="goods">Goods</div>
+				<a class="goods__link" name="goods" id="goods" />
 				<div class="goods__container">
 					<div class="goods__header">
 						Выбирайте здоровую, натуральную пищу, подаренную самой
@@ -147,29 +183,32 @@
 				</div>
 			</div>
 			<div class="contacts__container">
-			<div class="contacts__header">Связь с нами</div>
-			<div class="contacts__info">
-				<p class="contacts__p">
-					Для заказы свяжитесь с нами любым удобным для вас способом:
-				</p>
-				<p class="contacts__p">
-					1. Оставьте заявку через форму представленную слева (укажите
-					номер и мы вам перезвоним в удобное время или адрес
-					электронной почты с комментарием о том или ином товаре)
-				</p>
-				<p class="contacts__p">2. Позвоните или напишите нам</p>
-				<p class="contacts__p">
-					3. Напишите нам в любой из соц.сетей (инстаграм, воцап,
-					телеграм)
-				</p>
+				<div class="contacts__header">Связь с нами</div>
+				<div class="contacts__info">
+					<p class="contacts__p">
+						Для заказы свяжитесь с нами любым удобным для вас
+						способом:
+					</p>
+					<p class="contacts__p">
+						1. Оставьте заявку через форму представленную слева
+						(укажите номер и мы вам перезвоним в удобное время или
+						адрес электронной почты с комментарием о том или ином
+						товаре)
+					</p>
+					<p class="contacts__p">2. Позвоните или напишите нам</p>
+					<p class="contacts__p">
+						3. Напишите нам в любой из соц.сетей (инстаграм, воцап,
+						телеграм)
+					</p>
+				</div>
 			</div>
-			</div>
-			<Form/>
+			<Form />
 		</div>
 	</div>
 </template>
 
 <script>
+import browserDetect from "vue-browser-detect-plugin"
 import MenuBar from "@/components/MenuBar"
 import ProductsTable from "@/components/ProductsTable"
 import Form from "@/components/Form"
@@ -182,116 +221,127 @@ export default {
 		ProductsTable,
 		Form
 	},
+	beforeMount(){
+		// console.log(this.$browserDetect.isSafari)
+		this.$store.commit("app/CHANGE_BROWSER", this.$browserDetect.isSafari)
+		if (this.$store.state.app.isSafari === true){
+			this.prefix = 'jpg'
+		}
+		this.list.forEach(item=>{
+			item.image = `images/products/${this.prefix}/${item.name}.${this.prefix}`
+		})
+	},
 	data: () => ({
+		prefix: 'webp',
 		list: [
 			{
-				image: "images/products/adaptogen.webp",
+				name: 'adaptogen',
 				title: "Адаптогены",
 				path: "/product?name=adaptogen",
 			},
 			{
-				image: "images/products/tea.webp",
+				name: "tea",
 				title: "Травяные чаи",
 				path: "/product?name=tea",
 			},
 			{
-				image: "images/products/mushroom.webp",
+				name: "mushroom",
 				title: "Грибы (белый, лисички,опята, рейши, чага, агарикус)",
 				path: "/product?name=mushroom",
 			},
 			{
-				image: "images/products/berries.webp",
+				name: "berries",
 				title: "Ягоды сушеные",
 				path: "/product?name=berries",
 			},
 			{
-				image: "images/products/moss.webp",
+				name: "moss",
 				title: "Исландский мох",
 				path: "/product?name=moss",
 			},
 			{
-				image: "images/products/mumie.webp",
+				name: "mumie",
 				title: "Мумие",
 				path: "/product?name=mumie",
 			},
 			{
-				image: "images/products/stone-oil.webp",
+				name: "stone-oil",
 				title: "Каменное масло",
 				path: "/product?name=stone-oil",
 			},
 			{
-				image: "images/products/hedge.webp",
+				name: "hedge",
 				title: "Живица",
 				path: "/product?name=hedge",
 			},
 			{
-				image: "images/products/raw-oil.webp",
+				name: "raw-oil",
 				title: "Масла сыродавленные под заказ",
 				path: "/product?name=raw-oil",
 			},
 			{
-				image: "images/products/ghee-oil.webp",
+				name: "ghee-oil",
 				title: "Масло Гхи",
 				path: "/product?name=ghee-oil",
 			},
 			{
-				image: "images/products/cedar-coffee.webp",
+				name: "cedar-coffee",
 				title: "Кедрокофе",
 				path: "/product?name=cedar-coffee",
 			},
 			{
-				image: "images/products/pine-nut.webp",
+				name: "pine-nut",
 				title:
 					"Кедровых орех (продукция на основе кедрового ореха, ореховые пасты с шоколадом и др.)",
 				path: "/product?name=pine-nut",
 			},
 			{
-				image: "images/products/honey.webp",
+				name: "honey",
 				title: "Мед",
 				path: "/product?name=honey",
 			},
 			{
-				image: "images/products/cream-honey.webp",
+				name: "cream-honey",
 				title: "Крем-мед",
 				path: "/product?name=cream-honey",
 			},
 			{
-				image: "images/products/premium-honey.webp",
+				name: "premium-honey",
 				title: "Премиальный дягилевый мед",
 				path: "/product?name=premium-honey",
 			},
 			{
-				image: "images/products/fir-oil.webp",
+				name: "fir-oil",
 				title: "Пихтовое масло",
 				path: "/product?name=fir-oil",
 			},
 			{
-				image: "images/products/pine-production.webp",
+				name: "pine-production",
 				title: "Продукция на основе сосновых зеленых шишек",
 				path: "/product?name=pine-production",
 			},
 			{
-				image: "images/products/gift-set.webp",
+				name: "gift-set",
 				title: "Подарочные наборы к праздникам и торжествам",
 				path: "/product?name=gift-set",
 			},
 			{
-				image: "images/products/burdock-juice.webp",
+				name: "burdock-juice",
 				title: "Сок лопуха с медом",
 				path: "/product?name=burdock-juice",
 			},
 			{
-				image: "images/products/cedar-pillows.webp",
+				name: "cedar-pillows",
 				title: "Подушки с кедровой скорлупой",
 				path: "/product?name=cedar-pillows",
 			},
 			{
-				image: "images/products/royal-jelly.webp",
+				name: "royal-jelly",
 				title: "Маточное молочко",
 				path: "/product?name=royal-jelly",
 			},
 			{
-				image: "images/products/red-brush.webp",
+				name: "red-brush",
 				title: "Красная щетка и боровая матка",
 				path: "/product?name=red-brush",
 			},
@@ -301,9 +351,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.ref
-	&__goods
-		transform: translateY(-70px)
 .soc-link
 	font-size: 28px
 	margin-right: 3px
