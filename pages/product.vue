@@ -46,102 +46,84 @@ export default {
 		Form,
 	},
 	data: () => ({
+		prefix: "webp",
 		product: "",
 		text: "",
 		products: {
-			"adaptogen": {
-				image: "../images/products/adaptogen.webp",
+			adaptogen: {
 				price: 400,
 			},
-			"tea": {
-				image: "../images/products/tea.webp",
+			tea: {
 				price: 10,
 			},
-			"mushroom": {
-				image: "../images/products/mushroom.webp",
+			mushroom: {
 				price: 3000,
 			},
-			"berries": {
-				image: "../images/products/berries.webp",
+			berries: {
 				price: 1500,
 			},
-			"mumie": {
-				image: "../images/products/mumie.webp",
+			mumie: {
 				price: 250,
 			},
-			"moss": {
-				image: "../images/products/moss.webp",
+			moss: {
 				price: 350,
 			},
 			"stone-oil": {
-				image: "../images/products/stone-oil.webp",
 				price: 350,
 			},
-			"hedge": {
-				image: "../images/products/hedge.webp",
+			hedge: {
 				price: 350,
 			},
 			"raw-oil": {
-				image: "../images/products/raw-oil.webp",
 				price: 400,
 			},
 			"ghee-oil": {
-				image: "../images/products/ghee-oil.webp",
 				price: 900,
 			},
 			"cedar-coffee": {
-				image: "../images/products/cedar-coffee.webp",
 				price: 350,
 			},
 			"pine-nut": {
-				image: "../images/products/pine-nut.webp",
 				price: 250,
 			},
-			"honey": {
-				image: "../images/products/honey.webp",
+			honey: {
 				price: 350,
 			},
 			"cream-honey": {
-				image: "../images/products/cream-honey.webp",
 				price: 250,
 			},
 			"premium-honey": {
-				image: "../images/products/premium-honey.webp",
 				price: 750,
 			},
 			"fir-oil": {
-				image: "../images/products/fir-oil.webp",
 				price: 300,
 			},
 			"pine-production": {
-				image: "../images/products/pine-production.webp",
 				price: 10,
 			},
 			"gift-set": {
-				image: "../images/products/gift-set.webp",
 				price: 2800,
 			},
 			"burdock-juice": {
-				image: "../images/products/burdock-juice.webp",
 				price: 10,
 			},
 			"cedar-pillows": {
-				image: "../images/products/cedar-pillows.webp",
 				price: 1000,
 			},
 			"royal-jelly": {
-				image: "../images/products/royal-jelly.webp",
 				price: 1500,
 			},
 			"red-brush": {
-				image: "../images/products/red-brush.webp",
 				price: 500,
 			},
 		},
 	}),
 	created() {
 		this.product = this.$route.query.name
-		this.image = this.products[`${this.product}`].image
+		if (this.$store.state.app.isSafari === true){
+			this.prefix = 'jpg'
+		}
+		this.image = `../images/products/${this.prefix}/${this.product}.${this.prefix}`
 		this.price = this.products[`${this.product}`].price
 	},
 	async mounted() {
