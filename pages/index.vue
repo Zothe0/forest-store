@@ -131,7 +131,7 @@
 				</div>
 			</div>
 			<div class="goods">
-				<a class="goods__link" name="goods" />
+				<div class="ref__goods" ref="goods">Goods</div>
 				<div class="goods__container">
 					<div class="goods__header">
 						Выбирайте здоровую, натуральную пищу, подаренную самой
@@ -297,11 +297,13 @@ export default {
 			},
 		],
 	}),
-	
 }
 </script>
 
 <style lang="sass" scoped>
+.ref
+	&__goods
+		transform: translateY(-70px)
 .soc-link
 	font-size: 28px
 	margin-right: 3px

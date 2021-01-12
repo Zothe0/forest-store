@@ -23,7 +23,7 @@
 				{{ card.title }}
 			</div>
 		</nuxt-link>
-		<nuxt-link class="descrition" :to="card.path"
+		<nuxt-link class="description" :to="card.path"
 			>Подробнее о товаре</nuxt-link
 		>
 		<a class="order" href="/#contacts">Заказать</a>
@@ -93,15 +93,13 @@ export default {
 	width: 100%
 	transition: all 300ms ease 0s
 	background-color: rgba(#000, 0.55)
+	&__text
+		font-weight: 400
+		font-size: 20px
 .title
 	font-size: 18px
 	font-weight: bold
 	margin-bottom: 10px
-.description
-	font-size: 14px
-	font-weight: 300
-	margin-bottom: 15px
-	line-height: 1.2em
 .order
 	display: flex
 	justify-content: center
@@ -119,16 +117,17 @@ export default {
 		border: #fff solid 1px
 		background-color: #000
 		color: #fff
-.descrition
+.description
 	display: flex
 	align-items: center
 	justify-content: center
 	color: #fff
-	border: #fff solid 1px
+	border: #000 solid 1px
 	border-radius: 3px
 	height: 35px
 	max-width: 100%
 	font-size: 13px
+	margin-bottom: 8px
 	font-weight: 600
 	background-color: #719c7b
 	transition: all 300ms ease 0s
@@ -141,7 +140,7 @@ export default {
 		border: #000 solid 1px
 		background-color: #fff
 		color: #000
-	.descrition:hover
+	.description:hover
 		border: #fff solid 1px
 		background-color: #719c7b
 		color: #fff

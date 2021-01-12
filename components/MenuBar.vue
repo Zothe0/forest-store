@@ -3,18 +3,27 @@
 		<transition name="slide-fade">
 			<div @mouseleave="hideMenu" v-if="menuVisible" class="menu__block">
 				<div @click="hideMenu" class="menu__cross" />
-				<div class="menu__column">
-					<a class="menu__link" @click="hideMenu" href="/#goods"
-						>Наша продукция</a
+				<div @click="hideMenu" class="menu__column">
+					<div class="menu__link" @click="menuClick('goods')">
+						Наша продукция
+					</div>
+					<nuxt-link
+						class="menu__link"
+						@click="hideMenu"
+						to="/#advantages"
+						>Почему мы</nuxt-link
 					>
-					<a class="menu__link" @click="hideMenu" href="/#advantages"
-						>Почему мы</a
+					<nuxt-link
+						class="menu__link"
+						@click="hideMenu"
+						to="/#contacts"
+						>Заказать</nuxt-link
 					>
-					<a class="menu__link" @click="hideMenu" href="/#contacts"
-						>Заказать</a
-					>
-					<a class="menu__link" @click="hideMenu" href="/#contacts"
-						>Наши контакты</a
+					<nuxt-link
+						class="menu__link"
+						@click="hideMenu"
+						to="/#contacts"
+						>Наши контакты</nuxt-link
 					>
 				</div>
 				<div class="menu__footer">© 2020 Лесные радости</div>
@@ -34,7 +43,9 @@
 					<div class="line"></div>
 				</div>
 				<div class="social-links">
-					<a href="https://www.instagram.com/lesnye_radosti/" class="soc-link"
+					<a
+						href="https://www.instagram.com/lesnye_radosti/"
+						class="soc-link"
 						><fa :icon="['fab', 'instagram']"
 					/></a>
 					<a href="" class="soc-link"
@@ -57,12 +68,21 @@ export default {
 		},
 	},
 	methods: {
+		menuClick(path) {
+			this.hideMenu()
+			const temp = this.$parent.$children[1].$children[0].$refs
+			this.$router.push("/")
+			setTimeout(() => {
+				console.log(1)
+				temp.goods.scrollIntoView()
+			}, 2000)
+		},
 		showMenu() {
 			this.$store.commit("app/SHOW_MENU")
 		},
 		hideMenu() {
 			this.$store.commit("app/HIDE_MENU")
-		}
+		},
 	},
 }
 </script>

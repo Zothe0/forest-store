@@ -24,6 +24,7 @@
 			}
 		</style>
 		<div class="product">
+			<button @click="scroll">Scroll</button>
 			<div class="product__column">
 				<div
 					class="product__image"
@@ -44,13 +45,6 @@ import Form from "@/components/Form"
 export default {
 	components: {
 		Form,
-	},
-	methods:{
-		async uploadText(){
-			const response = await getReq('/api/product?name=adaptogen')
-			this.text = response.text
-			console.log(this.text)
-		}
 	},
 	data: () => ({
 		product: "",
