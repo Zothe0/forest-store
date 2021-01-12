@@ -94,6 +94,7 @@ export default {
 	transition: all 300ms ease 0s
 	background-color: rgba(#000, 0.55)
 	&__text
+		text-align: center
 		font-weight: 400
 		font-size: 20px
 .title
