@@ -96,7 +96,7 @@ export default {
 	&__text
 		text-align: center
 		font-weight: 400
-		font-size: 18px
+		font-size: 20px
 .title
 	font-size: 18px
 	font-weight: bold
@@ -112,7 +112,7 @@ export default {
 	max-width: 100%
 	font-size: 13px
 	font-weight: 600
-	background-color: #fff
+	background-color: #fff //#fff85a
 	transition: all 300ms ease 0s
 	&:hover
 		border: #fff solid 1px

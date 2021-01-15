@@ -140,7 +140,7 @@ export default {
 		flex-direction: column
 		justify-content: space-between
 		flex: 1 0 auto
-		padding: 48px 40px 38px
+		padding: 65px 40px 38px
 		z-index: 12
 	&__cross
 		display: none
@@ -163,9 +163,10 @@ export default {
 	&__column
 		display: flex
 		flex-direction: column
-		font-size: 22px
+		font-size: 26px
 	&__link
-		margin-bottom: 15px
+		cursor: pointer
+		margin-bottom: 26px
 		&:last-child
 			margin: 0
 	&__shadow
@@ -181,6 +182,9 @@ export default {
 		background-color: rgba(#000, 0.35)
 @media screen and ( max-width: 768px)
 	.menu
+		&__link
+			font-size: 34px
+			margin-bottom: 34px
 		&__cross
 			display: block
 @media screen and ( max-width: 576px)
