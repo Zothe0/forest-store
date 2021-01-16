@@ -8,7 +8,7 @@
 						Наша продукция
 					</div>
 					<div class="menu__link" @click="menuClick('advantages')">
-						Почему мы
+						О нас
 					</div>
 					<div class="menu__link" @click="menuClick('contacts')">
 						Заказать

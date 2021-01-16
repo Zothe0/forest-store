@@ -22,6 +22,9 @@
 			.product__column::first-child {
 				margin-right: 20px;
 			}
+			.mini-item {
+				margin-bottom: 6px
+			}
 		</style>
 		<div class="product">
 			<div class="product__column">
@@ -136,6 +139,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.mini-item
+	margin-bottom: 70px !important
+	&:last-child
+		margin-bottom: 0
 b
 	font-weight: 600
 .link
