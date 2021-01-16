@@ -29,7 +29,7 @@
 					class="product__image"
 					:style="{ 'background-image': `url(${image})` }"
 				/>
-				<a href="#contacts" class="product__price">от {{ price }} ₽</a>
+				<a href="#contacts" class="product__price">Заказать</a>
 			</div>
 			<div class="product__text" ref="text" />
 		</div>

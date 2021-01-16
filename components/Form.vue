@@ -10,13 +10,13 @@
 						<p>E-mail: lesnye.radosti@gmail.com</p>
 					</div>
 					<div class="social-links">
-						<a href="" class="soc-link"
+						<a href="https://www.instagram.com/lesnye_radosti/" class="soc-link"
 							><fa :icon="['fab', 'instagram']"
 						/></a>
 						<a href="" class="soc-link"
 							><fa :icon="['fab', 'telegram']"
 						/></a>
-						<a href="" class="soc-link"
+						<a href="https://wa.me/79169680877" class="soc-link"
 							><fa :icon="['fab', 'whatsapp']"
 						/></a>
 					</div>

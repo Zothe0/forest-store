@@ -42,7 +42,7 @@
 					<a href="" class="soc-link"
 						><fa :icon="['fab', 'telegram']"
 					/></a>
-					<a href="" class="soc-link"
+					<a href="https://wa.me/79169680877" class="soc-link"
 						><fa :icon="['fab', 'whatsapp']"
 					/></a>
 				</div>

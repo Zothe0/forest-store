@@ -11,7 +11,7 @@
 			<div class="advantages">
 				<a class="advantages__link" name="advantages" id="advantages" />
 				<div class="advantages__header">
-					Почему предлагаем выбрать именно наши товары
+					О нас
 				</div>
 				<div class="advantages__column">
 					<div class="advantages__row">
