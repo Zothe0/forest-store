@@ -93,8 +93,8 @@ func sendMail(data *requestBody) {
 	count := getOrderCount()
 
 	m := gomail.NewMessage()
-	m.SetHeader("From", "z0the@yandex.ru")                        // z0the@yandex.ru dedwithin@gmail.com
-	m.SetAddressHeader("Cc", "lesnye.radosti@gmail.com", "Store") // lesnye.radosti@gmail.com
+	m.SetHeader("From", "darwinbot@yandex.ru")                        // darwinbot@yandex.ru dedwithin@gmail.com
+	m.SetAddressHeader("Cc", "lex4prime@gmail.com", "Store") // lesnye.radosti@gmail.com
 	m.SetHeader("Subject", fmt.Sprint("Заказ №", " ", count))
 	m.SetBody("text/html", fmt.Sprint(
 		"<p><b>Имя клиента:</b>", data.Name, "</p>",
@@ -102,7 +102,7 @@ func sendMail(data *requestBody) {
 		"<p><b>Телефон клиента:</b>", data.Phone, "</p>",
 		"<p><b>Заказ клиента:</b>", data.Question, "</p>"))
 
-	d := gomail.NewDialer("smtp.yandex.ru", 465, "z0the@yandex.ru", "timzzqesdrfhknfs") //smtp.yandex.ru smtp.gmail.com
+	d := gomail.NewDialer("smtp.yandex.ru", 465, "darwinbot@yandex.ru", "rdquckwpfmfrqdbr") //smtp.yandex.ru smtp.gmail.com
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Send the email to Store
