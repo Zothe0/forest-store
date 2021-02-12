@@ -94,7 +94,7 @@ func sendMail(data *requestBody) {
 
 	m := gomail.NewMessage()
 	m.SetHeader("From", "darwinbot@yandex.ru")                        // darwinbot@yandex.ru dedwithin@gmail.com
-	m.SetAddressHeader("Cc", "lex4prime@gmail.com", "Store") // lesnye.radosti@gmail.com
+	m.SetAddressHeader("Cc", "lesnye.radosti@gmail.com", "Store") // lesnye.radosti@gmail.com
 	m.SetHeader("Subject", fmt.Sprint("Заказ №", " ", count))
 	m.SetBody("text/html", fmt.Sprint(
 		"<p><b>Имя клиента:</b>", data.Name, "</p>",
