@@ -43,8 +43,7 @@ func configureRouter() *negroni.Negroni {
 	router.HandleFunc("/api/mail", handlers.MailHandler).Methods(http.MethodPost)
 	router.HandleFunc("/api/product", handlers.DataHandler).Methods(http.MethodGet)
 
-	// dir := "../dist/"
-	dir := "./test/"
+	dir := "../dist/"
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir(dir)))
 	n.UseHandler(router)
 
